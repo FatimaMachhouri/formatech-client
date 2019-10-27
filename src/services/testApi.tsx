@@ -9,4 +9,4 @@ export const getAccueil = async () => {
   catch (error) {
     throw error.response;
   }
-}
+};
