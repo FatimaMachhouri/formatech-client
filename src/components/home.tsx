@@ -8,7 +8,7 @@ const Root: React.FC = () => {
 
         <div className="root">
             <MenuBar />
-            <MainTitle name="blablabla"/>
+            <MainTitle name="Découvez aujourd’hui votre formation de demain."/>
         </div>
     );
 }

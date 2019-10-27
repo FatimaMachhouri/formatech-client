@@ -2,13 +2,18 @@
 
     content: "";
     position: relative;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #aaaaaa;
     width: 100%;
+    max-width:85%;
+    
 }
 
-.container {
+.container-title {
+    margin-top: 35px;
     display: flex;
-    width: 100%;
+    width: 90%;
+    margin:auto;
+    margin-top:35px;
 }
     
     .decor {
@@ -19,13 +24,13 @@
     }
     
     .decor-line {
-        border-top: 1px solid black;
+        border-top: 1px solid #aaaaaa;
         flex: 1;
     }
     
-    .content {
+    .name-mainTitle {
         padding: 0 10px;
         text-align: center;
         font-weight:200;
-        text-transform:uppercase;
+        font-size: 23px;
     }
