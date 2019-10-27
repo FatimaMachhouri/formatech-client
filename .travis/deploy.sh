@@ -5,13 +5,11 @@ chmod 600 ./deploy.key
 ssh-add ./deploy.key
 ssh-keyscan igpolytech.fr >> ~/.ssh/known_hosts
 if [ "$1" = "production" ]; then
-  git remote add deploy
-  dokku@igpolytech.fr:formatech
+  git remote add deploy dokku@igpolytech.fr:formatech
   git config --global push.default simple
   git push deploy master
 elif [ "$1" = "staging" ]; then
-  git remote add deploy
-  dokku@igpolytech.fr:test-formatech
+  git remote add deploy dokku@igpolytech.fr:test-formatech
   git config --global push.default simple
   git push deploy dev:master
 else
