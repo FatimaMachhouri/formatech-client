@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from '../img/polytechLogo.svg';
+
 import burger from '../img/burger.svg';
 import cross from '../img/cross.svg';
 import '../style/menubar.css';
@@ -51,6 +52,7 @@ class MenuBar extends React.Component<IProps,IState> {
       </div>
     );
   }
+
 }
 
 export default MenuBar;
