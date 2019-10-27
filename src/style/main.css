@@ -1,0 +1,31 @@
+.mainTitle:before{
+
+    content: "";
+    position: relative;
+    border-bottom: 1px solid black;
+    width: 100%;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+    
+    .decor {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        min-width: 15%;
+    }
+    
+    .decor-line {
+        border-top: 1px solid black;
+        flex: 1;
+    }
+    
+    .content {
+        padding: 0 10px;
+        text-align: center;
+        font-weight:200;
+        text-transform:uppercase;
+    }
