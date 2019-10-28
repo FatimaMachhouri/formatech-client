@@ -22,7 +22,7 @@ class MenuBar extends React.Component<IProps, IState> {
     this.closeBurger = this.closeBurger.bind(this);
     this.openBurger = this.openBurger.bind(this);
     this.showSubMenuMobile = this.showSubMenuMobile.bind(this);
-    this.showSubMenu = this.showSubMenu.bind(this)
+    this.showSubMenu = this.showSubMenu.bind(this);
   }
 
 
@@ -34,18 +34,18 @@ class MenuBar extends React.Component<IProps, IState> {
   }
 
   showSubMenuMobile() {
-    if (this.state.classNameSubMenu === "hidden") {
-      this.setState({ classNameSubMenu: 'visible-sub' })
+    if (this.state.classNameSubMenu === 'hidden') {
+      this.setState({ classNameSubMenu: 'visible-sub' });
     } else {
-      this.setState({ classNameSubMenu: 'hidden' })
+      this.setState({ classNameSubMenu: 'hidden' });
     }
   }
 
   showSubMenu() {
-    if (this.state.classNameSubMenuFloat === "hidden") {
-      this.setState({ classNameSubMenuFloat: 'visible-subFloat' })
+    if (this.state.classNameSubMenuFloat === 'hidden') {
+      this.setState({ classNameSubMenuFloat: 'visible-subFloat' });
     } else {
-      this.setState({ classNameSubMenuFloat: 'hidden' })
+      this.setState({ classNameSubMenuFloat: 'hidden' });
     }
   }
 
