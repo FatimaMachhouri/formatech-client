@@ -1,0 +1,22 @@
+
+@media only screen and (max-width: 780px) {
+    .picture-formation{
+        max-width:80%;
+        margin-left: 10%;
+        margin-top:5%;
+    }
+}
+
+@media only screen and (min-width: 781px) {
+    .picture-formation{
+        max-width:45%;
+        margin:auto;
+        margin-top:5%;
+        display:inline-block;
+    }
+    .informations{
+        padding:5%;
+    }
+}
+
+
