@@ -1,8 +1,9 @@
 import React from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Root from './components/home';
-import FormationDo from './components/formation-do';
 import MenuBar from './components/menubar';
+import FormationDo from './components/formation-do';
+import FormationIg from './components/formation-ig';
 
 export default function App() {
   return (
@@ -42,7 +43,7 @@ function Candidater() {
 }
 
 function FormationIG() {
-  return null
+  return <FormationIg />
 }
 
 function FormationDO() {
