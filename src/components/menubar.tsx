@@ -7,26 +7,48 @@ import '../style/menubar.css';
 import { Link } from 'react-router-dom';
 
 interface IState {
-    classNameBurger?: string;
+  classNameBurger?: string;
+  classNameSubMenu?: string;
+  classNameSubMenuFloat?: string;
 }
 
-interface IProps{}
-class MenuBar extends React.Component<IProps,IState> {
-  constructor(props :IProps) {
+interface IProps { }
+class MenuBar extends React.Component<IProps, IState> {
+  constructor(props: IProps) {
     super(props);
     this.state = {
-      classNameBurger: 'hidden'
+      classNameBurger: 'hidden',
+      classNameSubMenu: 'hidden',
+      classNameSubMenuFloat: 'hidden'
     };
     this.closeBurger = this.closeBurger.bind(this);
     this.openBurger = this.openBurger.bind(this);
+    this.showSubMenuMobile = this.showSubMenuMobile.bind(this);
+    this.showSubMenu = this.showSubMenu.bind(this);
   }
-    
+
 
   closeBurger() {
-    this.setState({classNameBurger:'hidden'});
+    this.setState({ classNameBurger: 'hidden' });
   }
   openBurger() {
     this.setState({ classNameBurger: 'burger' });
+  }
+
+  showSubMenuMobile() {
+    if (this.state.classNameSubMenu === 'hidden') {
+      this.setState({ classNameSubMenu: 'visible-sub' });
+    } else {
+      this.setState({ classNameSubMenu: 'hidden' });
+    }
+  }
+
+  showSubMenu() {
+    if (this.state.classNameSubMenuFloat === 'hidden') {
+      this.setState({ classNameSubMenuFloat: 'visible-subFloat' });
+    } else {
+      this.setState({ classNameSubMenuFloat: 'hidden' });
+    }
   }
 
   render() {
@@ -36,7 +58,11 @@ class MenuBar extends React.Component<IProps,IState> {
           <img src={cross} className='cross' onClick={this.closeBurger} alt='close menu.'/>
           <Link className='burgerElement' to="/" style={{textDecoration:'none', color:'black'}}> ACCUEIL </Link>
           <Link className='burgerElement' to="/candidater" style={{textDecoration:'none', color:'black'}}> CANDIDATER </Link>
-          <Link className='burgerElement' to="/formations" style={{textDecoration:'none', color:'black'}}> FORMATIONS </Link>
+          <Link className='burgerElement' to="/formations" style={{textDecoration:'none', color:'black'}} onClick={this.showSubMenuMobile}> FORMATIONS </Link>
+          <div className={this.state.classNameSubMenu}>
+            <p className="subBurger">IG</p>
+            <p className="subBurger">DO</p>
+          </div>
           <Link className='burgerElement' to="/contact" style={{textDecoration:'none', color:'black'}}> CONTACT </Link>
         </div>
 
@@ -45,7 +71,11 @@ class MenuBar extends React.Component<IProps,IState> {
             <img src={logo} className='polytechLogo' alt='Logo de polytech' />
             <Link className='menuElement' to="/" style={{textDecoration:'none', color:'black'}}> ACCUEIL </Link>
             <Link className='menuElement' to="/candidater" style={{textDecoration:'none', color:'black'}}> CANDIDATER </Link>
-            <Link className='menuElement' to="/formations" style={{textDecoration:'none', color:'black'}}> FORMATIONS </Link>
+            <Link className='menuElement' to="/formations" style={{textDecoration:'none', color:'black'}} onClick={this.showSubMenu}> FORMATIONS </Link>
+            <div className={this.state.classNameSubMenuFloat}>
+              <p className="subBurger">IG</p>
+              <p className="subBurger">DO</p>
+            </div>
             <Link className='menuElement' to="/contact" style={{textDecoration:'none', color:'black'}}> CONTACT </Link>
             <img className="burgerIcon" src={burger} onClick={this.openBurger} alt="burger menu"/>
           </header>
