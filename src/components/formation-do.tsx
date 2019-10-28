@@ -26,7 +26,7 @@ class FormationDo extends React.Component {
         <span className='mainText'>{fakeText}</span>
         <div className="informations">
           <img src={dopicture} className="picture-formation" alt="do illustration"/>
-          <Tuile name="Good Title" />
+          <Tuile name="I'm a fucking awesome title" />
         </div>
       </div>
     );
