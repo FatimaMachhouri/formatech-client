@@ -14,7 +14,7 @@ const Root: React.FC = () => {
       <span className='mainText'>{text}</span>
       <div className="pres-formation">
         <Preview name="Développement Opérationnel" className="do"/>
-        <Preview name="Informatique et gestion" className="ig"/>
+        <Preview name="Informatique et Gestion" className="ig"/>
       </div>
       <MainTitle name="Nous sommes là pour vous répondre" />
     </div>
