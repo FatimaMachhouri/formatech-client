@@ -15,8 +15,11 @@ export default function App() {
           <Route path="/candidater">
             <Candidater />
           </Route>
-          <Route path="/formations">
-            <Formations />
+          <Route path="/formation/ig">
+            <FormationIG />
+          </Route>
+          <Route path="/formation/do">
+            <FormationDO />
           </Route>
           <Route path="/contact">
             <Contact />
@@ -38,7 +41,11 @@ function Candidater() {
   return null;
 }
 
-function Formations() {
+function FormationIG() {
+  return null
+}
+
+function FormationDO() {
   return <FormationDo />;
 }
 
