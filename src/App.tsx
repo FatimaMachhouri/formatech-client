@@ -4,7 +4,6 @@ import Root from './components/home';
 import MenuBar from './components/menubar';
 import FormationDo from './components/formation-do';
 import FormationIg from './components/formation-ig';
-import Contact from './components/contact';
 
 export default function App() {
   return (
@@ -24,7 +23,7 @@ export default function App() {
             <FormationDO />
           </Route>
           <Route path="/contact">
-            <Contacts />
+            <Contact />
           </Route>
           <Route path="/">
             <Home />
@@ -51,6 +50,6 @@ function FormationDO() {
   return <FormationDo />;
 }
 
-function Contacts() {
-  return <Contact />;
+function Contact() {
+  return null;
 }
