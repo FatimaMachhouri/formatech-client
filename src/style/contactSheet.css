@@ -1,0 +1,23 @@
+@media only screen and (min-width: 781px) {
+    .container-contactSheet{
+        width:28%;
+        height:150px;
+        margin-top:4%;
+        margin-left:2.66%;
+        margin-right:2%;
+        padding-top:20px;
+        border:1px solid grey;
+        text-align: center;
+        display:inline-block;
+    }
+}
+
+.name-contact {
+    font-weight:bold;
+}
+
+.position-contact {
+}
+
+.email-contact {
+}
