@@ -70,7 +70,7 @@
     cursor:pointer;
 }
 
-.DO{
+.do{
     background: url("../img/DO.jpeg");
     padding-bottom:60px;
     padding-top:20px;
@@ -79,7 +79,7 @@
     background-size:contain;
 }
 
-.IG{
+.ig{
     background: url("../img/IG.jpeg");
     background-attachment: fixed;
     background-position: fixed;
@@ -88,5 +88,6 @@
     padding-top:20px;
 }
 
-
-
+a:link{ 
+    text-decoration:none; 
+}
