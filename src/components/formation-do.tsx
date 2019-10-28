@@ -2,7 +2,6 @@ import React from 'react';
 import '../style/formation.css';
 import MainTitle from './mainTitle';
 import Tuile from './tuile';
-import MenuBar from './menubar';
 import DoForm from './do-form';
 //import dopicture from '../img/do-infos.svg';
 
@@ -25,7 +24,7 @@ class FormationDo extends React.Component {
         <MainTitle name="Dev Ops" />
         <span className='mainText'>{fakeText}</span>
         <div className="informations">
-          <DoForm/>
+          <DoForm />
           <Tuile name="Simple Title" />
         </div>
       </div>
