@@ -34,19 +34,19 @@ class MenuBar extends React.Component<IProps,IState> {
       <div className='menuBarContent'>
         <div className={this.state.classNameBurger} id='burger'>
           <img src={cross} className='cross' onClick={this.closeBurger} alt='close menu.'/>
-          <p className='burgerElement'> <Link to="/" style={{textDecoration:'none', color:'black'}}> ACCUEIL </Link> </p>
-          <p className='burgerElement'> <Link to="/candidater" style={{textDecoration:'none', color:'black'}}> CANDIDATER </Link> </p>
-          <p className='burgerElement'> <Link to="/formations" style={{textDecoration:'none', color:'black'}}> FORMATIONS </Link> </p>
-          <p className='burgerElement'> <Link to="/contact" style={{textDecoration:'none', color:'black'}}> CONTACT </Link> </p>
+          <Link className='burgerElement' to="/" style={{textDecoration:'none', color:'black'}}> ACCUEIL </Link>
+          <Link className='burgerElement' to="/candidater" style={{textDecoration:'none', color:'black'}}> CANDIDATER </Link>
+          <Link className='burgerElement' to="/formations" style={{textDecoration:'none', color:'black'}}> FORMATIONS </Link>
+          <Link className='burgerElement' to="/contact" style={{textDecoration:'none', color:'black'}}> CONTACT </Link>
         </div>
 
         <div className='MenuBar'>
           <header className='App-header'>
             <img src={logo} className='polytechLogo' alt='Logo de polytech' />
-            <p className='menuElement'> <Link to="/" style={{textDecoration:'none', color:'black'}}> ACCUEIL </Link> </p>
-            <p className='menuElement'> <Link to="/candidater" style={{textDecoration:'none', color:'black'}}> CANDIDATER </Link> </p>
-            <p className='menuElement'> <Link to="/formations" style={{textDecoration:'none', color:'black'}}> FORMATIONS </Link> </p>
-            <p className='menuElement'> <Link to="/contact" style={{textDecoration:'none', color:'black'}}> CONTACT </Link> </p>
+            <Link className='menuElement' to="/" style={{textDecoration:'none', color:'black'}}> ACCUEIL </Link>
+            <Link className='menuElement' to="/candidater" style={{textDecoration:'none', color:'black'}}> CANDIDATER </Link>
+            <Link className='menuElement' to="/formations" style={{textDecoration:'none', color:'black'}}> FORMATIONS </Link>
+            <Link className='menuElement' to="/contact" style={{textDecoration:'none', color:'black'}}> CONTACT </Link>
             <img className="burgerIcon" src={burger} onClick={this.openBurger} alt="burger menu"/>
           </header>
         </div>
