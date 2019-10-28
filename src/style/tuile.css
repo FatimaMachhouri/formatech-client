@@ -11,6 +11,9 @@
     .cross{
     width:40px;
     max-width:40px;
+    height:40px;
+    opacity: 0.6;
+    margin-top:-10px;
 }
 
 }
@@ -29,6 +32,7 @@
 
 .cross{
     width:20px;
+    height:20px;
     margin-left:15px;
     opacity: 0.6;
 }
@@ -58,9 +62,11 @@
     
 .decor {
     flex: 1;
-    display: flex;
+    display: inline-block;
     align-items: center;
     min-width: 15%;
+    vertical-align: middle;
+    margin-top: 10px;
 }
 
 .decor-line {
