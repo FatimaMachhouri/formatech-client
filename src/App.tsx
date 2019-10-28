@@ -1,29 +1,45 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import MenuBar from './components/menubar';
+import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
+import Root from './components/home';
+import FormationDo from './components/formation-do';
 
-const App: React.FC = () => {
-
-
+export default function App() {
   return (
-
-    <div className="root">
-      <MenuBar />
-      <img src={logo} className="App-logo" alt="logo" />
-      <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-      </p>
-      <a
-        className="App-link"
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-          Learn React
-      </a>
-    </div>
+    <Router>
+      <div>
+        {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+        <Switch>
+          <Route path="/candidater">
+            <Candidater />
+          </Route>
+          <Route path="/formations">
+            <Formations />
+          </Route>
+          <Route path="/contact">
+            <Contact />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
-};
+}
 
-export default App;
+function Home() {
+  return <Root />;
+}
+
+function Candidater() {
+  return null;
+}
+
+function Formations() {
+  return <FormationDo />;
+}
+
+function Contact() {
+  return null;
+}
