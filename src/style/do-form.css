@@ -1,0 +1,24 @@
+	.st0{fill:#8C48AA;}
+	.st1{fill:#FFFFFF;}
+	.st2{fill:#30AC63;}
+	.st3{fill:#995CB3;}
+	.st4{fill:#2E80B6;}
+	.st5{fill:#39C974;}
+	.st6{fill:#3A98D7;}
+	.st7{fill:#29BA9B;}
+	.st8{fill:#239E84;}
+
+@media only screen and (max-width: 780px) {
+    svg{
+      max-width:80%;
+      margin-left:10%;
+      margin-top:30px;
+    }
+
+}
+
+@media only screen and (min-width: 781px) {
+    svg{
+      max-width:60%;
+    }
+}
