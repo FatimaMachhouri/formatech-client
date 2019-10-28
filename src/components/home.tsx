@@ -1,5 +1,5 @@
 import React from 'react';
-import MenuBar from './menubar';
+import TestApi from '../components/testApi';
 import MainTitle from './mainTitle';
 import '../style/main.css';
 import Preview from './preview';
@@ -8,9 +8,8 @@ const text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel
 
 const Root: React.FC = () => {
   return (
-
     <div className="root">
-      <MenuBar />
+      <TestApi />
       <MainTitle name="Découvez aujourd’hui votre formation de demain." />
       <span className='mainText'>{text}</span>
       <div className="pres-formation">
@@ -21,5 +20,4 @@ const Root: React.FC = () => {
     </div>
   );
 };
-
 export default Root;
