@@ -108,6 +108,7 @@
         vertical-align: center;
         margin:auto;
         margin-left: 45px;
+        cursor: pointer;
     }
 
     .burger{

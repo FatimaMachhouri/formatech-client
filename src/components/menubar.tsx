@@ -1,8 +1,10 @@
 import React from 'react';
 import logo from '../img/polytechLogo.svg';
+
 import burger from '../img/burger.svg';
 import cross from '../img/cross.svg';
 import '../style/menubar.css';
+import { Link } from 'react-router-dom';
 
 interface IState {
   classNameBurger?: string;
@@ -53,34 +55,35 @@ class MenuBar extends React.Component<IProps, IState> {
     return (
       <div className='menuBarContent'>
         <div className={this.state.classNameBurger} id='burger'>
-          <img src={cross} className='cross' onClick={this.closeBurger} alt='close menu.' />
-          <p className='burgerElement'>ACCUEIL</p>
-          <p className='burgerElement' >CANDIDATER</p>
-          <p className='burgerElement' onClick={this.showSubMenuMobile}>FORMATIONS</p>
+          <img src={cross} className='cross' onClick={this.closeBurger} alt='close menu.'/>
+          <Link className='burgerElement' to="/" style={{textDecoration:'none', color:'black'}}> ACCUEIL </Link>
+          <Link className='burgerElement' to="/candidater" style={{textDecoration:'none', color:'black'}}> CANDIDATER </Link>
+          <p className='burgerElement' onClick={this.showSubMenuMobile}> FORMATIONS </p>
           <div className={this.state.classNameSubMenu}>
-            <p className="subBurger">IG</p>
-            <p className="subBurger">DO</p>
+            <p className='subBurger'> <Link to="/formation/ig" style={{textDecoration:'none', color:'black'}}> IG </Link> </p>
+            <p className='subBurger'> <Link to="/formation/do" style={{textDecoration:'none', color:'black'}}> DO </Link> </p>
           </div>
-          <p className='burgerElement'>CONTACT</p>
+          <Link className='burgerElement' to="/contact" style={{textDecoration:'none', color:'black'}}> CONTACT </Link>
         </div>
 
         <div className='MenuBar'>
           <header className='App-header'>
             <img src={logo} className='polytechLogo' alt='Logo de polytech' />
-            <p className='menuElement'>ACCUEIL</p>
-            <p className='menuElement'>CANDIDATER</p>
-            <p className='menuElement' onClick={this.showSubMenu}>FORMATIONS</p>
+            <Link className='menuElement' to="/" style={{textDecoration:'none', color:'black'}}> ACCUEIL </Link>
+            <Link className='menuElement' to="/candidater" style={{textDecoration:'none', color:'black'}}> CANDIDATER </Link>
+            <p className='menuElement' onClick={this.showSubMenu}> FORMATIONS </p>
             <div className={this.state.classNameSubMenuFloat}>
-              <p className="subBurger">IG</p>
-              <p className="subBurger">DO</p>
+              <p className='subBurger'> <Link to="/formation/ig" style={{textDecoration:'none', color:'black'}}> IG </Link> </p>
+              <p className='subBurger'> <Link to="/formation/do" style={{textDecoration:'none', color:'black'}}> DO </Link> </p>
             </div>
-            <p className='menuElement'>CONTACT</p>
-            <img className="burgerIcon" src={burger} onClick={this.openBurger} alt="burger menu" />
+            <Link className='menuElement' to="/contact" style={{textDecoration:'none', color:'black'}}> CONTACT </Link>
+            <img className="burgerIcon" src={burger} onClick={this.openBurger} alt="burger menu"/>
           </header>
         </div>
       </div>
     );
   }
+
 }
 
 export default MenuBar;
