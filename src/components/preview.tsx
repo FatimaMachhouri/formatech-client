@@ -29,7 +29,7 @@ class Preview extends React.Component<IProps, IState> {
           <span className="littleTitle">Formation</span>
           <span className="bigtitle">{this.state.name}</span>
           <p className="content">{fakeText}</p>
-          <div className="button"><p className='buttonText'>Découvrir</p></div>
+          <a href={"/formation/" + this.state.className}> <div className="button"> <p className='buttonText'> Découvrir </p> </div> </a>
         </div>
       </div>
     );
