@@ -4,6 +4,7 @@ import logo from '../img/polytechLogo.svg';
 import burger from '../img/burger.svg';
 import cross from '../img/cross.svg';
 import '../style/menubar.css';
+import { Link } from 'react-router-dom';
 
 interface IState {
     classNameBurger?: string;
@@ -33,19 +34,19 @@ class MenuBar extends React.Component<IProps,IState> {
       <div className='menuBarContent'>
         <div className={this.state.classNameBurger} id='burger'>
           <img src={cross} className='cross' onClick={this.closeBurger} alt='close menu.'/>
-          <p className='burgerElement'>ACCUEIL</p>
-          <p className='burgerElement'>CANDIDATER</p>
-          <p className='burgerElement'>FORMATIONS</p>
-          <p className='burgerElement'>CONTACT</p>
+          <p className='burgerElement'> <Link to="/" style={{textDecoration:'none', color:'black'}}> ACCUEIL </Link> </p>
+          <p className='burgerElement'> <Link to="/candidater" style={{textDecoration:'none', color:'black'}}> CANDIDATER </Link> </p>
+          <p className='burgerElement'> <Link to="/formations" style={{textDecoration:'none', color:'black'}}> FORMATIONS </Link> </p>
+          <p className='burgerElement'> <Link to="/contact" style={{textDecoration:'none', color:'black'}}> CONTACT </Link> </p>
         </div>
 
         <div className='MenuBar'>
           <header className='App-header'>
             <img src={logo} className='polytechLogo' alt='Logo de polytech' />
-            <p className='menuElement'>ACCUEIL</p>
-            <p className='menuElement'>CANDIDATER</p>
-            <p className='menuElement'>FORMATIONS</p>
-            <p className='menuElement'>CONTACT</p>
+            <p className='menuElement'> <Link to="/" style={{textDecoration:'none', color:'black'}}> ACCUEIL </Link> </p>
+            <p className='menuElement'> <Link to="/candidater" style={{textDecoration:'none', color:'black'}}> CANDIDATER </Link> </p>
+            <p className='menuElement'> <Link to="/formations" style={{textDecoration:'none', color:'black'}}> FORMATIONS </Link> </p>
+            <p className='menuElement'> <Link to="/contact" style={{textDecoration:'none', color:'black'}}> CONTACT </Link> </p>
             <img className="burgerIcon" src={burger} onClick={this.openBurger} alt="burger menu"/>
           </header>
         </div>
