@@ -159,7 +159,6 @@ class DoForm extends React.Component<IProps> {
       </svg>
     );
   }
-
 }
 
 export default DoForm;
