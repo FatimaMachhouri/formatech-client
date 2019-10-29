@@ -43,7 +43,7 @@ function Candidater() {
 }
 
 function FormationIG() {
-  return <FormationIg />
+  return <FormationIg />;
 }
 
 function FormationDO() {
