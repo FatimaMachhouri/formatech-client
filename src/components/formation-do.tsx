@@ -3,7 +3,6 @@ import '../style/formation.css';
 import MainTitle from './mainTitle';
 import Tuile from './tuile';
 import DoForm from './do-form';
-//import dopicture from '../img/do-infos.svg';
 
 const fakeText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel odio erat. Integer pharetra dui sit amet mauris hendrerit, id faucibus lectus lobortis. Vestibulum efficitur ultrices enim eget congue. Donec porta, nunc a facilisis mollis, erat eros vulputate tortor, et maximus urna urna vel justo. Etiam blandit massa eget tincidunt hendrerit. ';
 
@@ -12,6 +11,7 @@ interface IState {
 }
 
 interface IProps {
+
 }
 
 class FormationDo extends React.Component<IProps, IState> {
@@ -25,10 +25,8 @@ class FormationDo extends React.Component<IProps, IState> {
   }
 
   changeActiveElement(elem: string) {
-    console.log('correctly called');
-    this.setState({ activeElement: elem });
+    this.setState({activeElement: elem});
   }
-
 
   render() {
     return (
@@ -36,7 +34,7 @@ class FormationDo extends React.Component<IProps, IState> {
         <MainTitle name="Dev Ops" />
         <span className='mainText'>{fakeText}</span>
         <div className="informations">
-          <DoForm action={this.changeActiveElement} />
+          <DoForm handleClick={this.changeActiveElement} />
           <Tuile name={this.state.activeElement} />
         </div>
       </div>
