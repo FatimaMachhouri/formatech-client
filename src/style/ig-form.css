@@ -1,0 +1,28 @@
+.st0{fill:#39C974;}
+	.st1{enable-background:new    ;}
+	.st2{fill:#FFFFFF;}
+	.st3{fill:#2E80B6;}
+	.st4{fill:#A5A5A5;}
+	.st5{fill:#3A98D7;}
+	.st6{fill:#29BA9B;}
+	.st7{fill:#995CB3;}
+	.st8{fill:#8C48AA;}
+	.st9{fill:#239E84;}
+	.st10{fill:#30AC63;}
+
+
+@media only screen and (max-width: 780px) {
+    svg{
+      max-width:80%;
+      margin-left:10%;
+      margin-top:30px;
+    }
+
+}
+
+@media only screen and (min-width: 781px) {
+    svg{
+      max-width:40%;
+			margin-left:10%
+    }
+}
