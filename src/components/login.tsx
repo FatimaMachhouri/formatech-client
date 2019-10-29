@@ -12,6 +12,7 @@ const Login = () => (
         <button>Se connecter</button>
       </form>
     </div>
+    <p className="detail"> Connectez-vous afin de modifier le contenu de la plateforme.</p>
   </div>
 );
 
