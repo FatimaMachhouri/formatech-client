@@ -14,42 +14,22 @@ export default function App() {
             renders the first one that matches the current URL. */}
         <Switch>
           <Route path="/candidater">
-            <Candidater />
+            null
           </Route>
           <Route path="/formation/ig">
-            <FormationIG />
+            <FormationIg />
           </Route>
           <Route path="/formation/do">
-            <FormationDO />
+            <FormationDo />
           </Route>
           <Route path="/contact">
-            <Contact />
+            null
           </Route>
           <Route path="/">
-            <Home />
+            <Root />
           </Route>
         </Switch>
       </div>
     </Router>
   );
-}
-
-function Home() {
-  return <Root />;
-}
-
-function Candidater() {
-  return null;
-}
-
-function FormationIG() {
-  return <FormationIg />;
-}
-
-function FormationDO() {
-  return <FormationDo />;
-}
-
-function Contact() {
-  return null;
 }
