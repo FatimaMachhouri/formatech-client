@@ -25,10 +25,10 @@ export default class TestApi extends Component {
     addIgElement(newIgElement);
 
     //Update
-    const uelemContact = { idContact: 13, name: 'modifContact', email: 't@t.fr', position: 'master' };
-    const uIgElement = { idIg: 14, title: 'igR', content: 'modifIg', media: 'none' };
-    const uDoElement = { idDo: 19, title: 'doR', content: 'modifDo', media: 'none' };
-    const uHomeElement = { idHome: 20, title: 'homeR', content: 'modifHome', media: 'none' };
+    const uelemContact = { idContact: 14, name: 'modifContact', email: 't@t.fr', position: 'master' };
+    const uIgElement = { idIg: 15, title: 'igR', content: 'modifIg', media: 'none' };
+    const uDoElement = { idDo: 20, title: 'doR', content: 'modifDo', media: 'none' };
+    const uHomeElement = { idHome: 21, title: 'homeR', content: 'modifHome', media: 'none' };
 
     console.log('Update');
     updateElementInContact(uelemContact);
@@ -37,10 +37,10 @@ export default class TestApi extends Component {
     updateElementInIg(uIgElement);
 
     //Delete
-    const idContact = 13;
-    const idIg= 14;
-    const idDo = 19;
-    const idHome = 20;
+    const idContact = 16;
+    const idIg= 16;
+    const idDo = 21;
+    const idHome = 22;
 
     console.log('Delete');
     deleteElementInContact(idContact);
