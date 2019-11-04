@@ -1,8 +1,8 @@
 import { Component } from 'react';
-import { getHomeElements, addHomeElement, updateElementInHome, deleteElementInHome } from '../services/home.service';
-import { getIgElements, addIgElement, updateElementInIg, deleteElementInIg } from '../services/ig.service';
-import { getDoElements, addDoElement, updateElementInDo, deleteElementInDo } from '../services/do.service';
-import { getContactElements, addContactElement, updateElementInContact, deleteElementInContact } from '../services/contact.service';
+import { getHomeElements } from '../services/home.service';
+import { getIgElements} from '../services/ig.service';
+import { getDoElements } from '../services/do.service';
+import { getContactElements} from '../services/contact.service';
 
 export default class TestApi extends Component {
   componentDidMount() {
