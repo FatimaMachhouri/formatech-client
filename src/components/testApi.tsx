@@ -13,7 +13,7 @@ export default class TestApi extends Component {
     getDoElements().then((res: any) => { console.log(res); }).catch((error: any) => { console.log(error); });
     getContactElements().then((res: any) => { console.log(res); }).catch((error: any) => { console.log(error); });
     //Add
-    const elemContact = { name: 'toto', email: 't@t.fr', position: 'master' };
+   /* const elemContact = { name: 'toto', email: 't@t.fr', position: 'master' };
     const newIgElement = { title: 'igR', content: 'iggg', media: 'none' };
     const newDoElement = { title: 'doR', content: 'dooo', media: 'none' };
     const newHomeElement = { title: 'homeR', content: 'hommeea', media: 'none' };
@@ -47,7 +47,7 @@ export default class TestApi extends Component {
     deleteElementInDo(idDo);
     deleteElementInHome(idHome);
     deleteElementInIg(idIg);
-
+*/
   }
 
   render() {
