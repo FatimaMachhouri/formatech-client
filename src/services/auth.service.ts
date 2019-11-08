@@ -1,5 +1,7 @@
 import axios from 'axios';
 import User from '../models/user.model';
+import { setToken, removeToken, getToken } from './token.service';
+
 
 const login = async (user: User) => {
   try {
@@ -8,7 +10,7 @@ const login = async (user: User) => {
         login: user.login,
         password: user.password
       });
-    localStorage.setItem('tokenFormatech', res.data);
+    setToken(res.data);
     return res.data;
   }
   catch (err) {
@@ -18,7 +20,27 @@ const login = async (user: User) => {
 
 const logout = () => {
   // remove user from local storage to log user out
-  localStorage.removeItem('tokenFormatech');
-}
+  removeToken();
+};
 
-export { login, logout };
+const verifyToken = async () => {
+  const token = getToken();
+  try {
+    const res = await axios
+      .get('api/utilisateur/token',
+        {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+        if(res.status == 200){
+          return true;
+        }else{
+          return false;
+        }
+    //return res.data;
+  }
+  catch (err) {
+    console.log(err);
+  }
+};
+
+export { login, logout, verifyToken };
