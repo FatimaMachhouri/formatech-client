@@ -4,7 +4,7 @@ import { getToken } from './token.service';
 
 export const getIgElements = async () => {
   try {
-    const acc = await axios.get(`${config.API_URL}/api/ig`);
+    const acc = await axios.get(`${config.API_URL}/ig`);
     return acc.data;
   }
   catch (error) {
@@ -15,7 +15,7 @@ export const getIgElements = async () => {
 export const addIgElement = async (newIgElement: { title: string, content: string, media: string }) => {
   const token = getToken();
   try {
-    await axios.post(`${config.API_URL}/api/ig`, newIgElement,{
+    await axios.post(`${config.API_URL}/ig`, newIgElement,{
       headers: { Authorization: `Bearer ${token}` }
     });
   }
@@ -27,7 +27,7 @@ export const addIgElement = async (newIgElement: { title: string, content: strin
 export const updateElementInIg = async (igElement: { idIg: number, title: string; content: string; media: string; }) => {
   const token = getToken();
   try {
-    await axios.put(`${config.API_URL}/api/ig/modifier/${igElement.idIg}`, igElement,{
+    await axios.put(`${config.API_URL}/ig/modifier/${igElement.idIg}`, igElement,{
       headers: { Authorization: `Bearer ${token}` }
     });
   }
@@ -39,7 +39,7 @@ export const updateElementInIg = async (igElement: { idIg: number, title: string
 export const deleteElementInIg = async (idIg: number) => {
   const token = getToken();
   try {
-    await axios.delete(`${config.API_URL}/api/ig/supprimer/${idIg}`,{
+    await axios.delete(`${config.API_URL}/ig/supprimer/${idIg}`,{
       headers: { Authorization: `Bearer ${token}` }
     });
   }
