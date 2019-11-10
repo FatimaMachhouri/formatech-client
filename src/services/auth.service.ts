@@ -24,7 +24,7 @@ const logout = () => {
   removeToken();
 };
 
-const verifyToken = async () => {
+const verifyToken = async ():Promise<boolean> => {
   const token = getToken();
   try {
     const res = await axios
@@ -41,6 +41,7 @@ const verifyToken = async () => {
   }
   catch (err) {
     console.log(err);
+    return false;
   }
 };
 
