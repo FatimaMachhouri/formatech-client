@@ -13,11 +13,11 @@ export default function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route exact path="/candidater"/>
-          <Route exact path="/formation/ig" component={FormationIg}/>
-          <Route exact path="/formation/do"component={FormationDo}/>
-          <Route exact path="/contact"/>
-          <Route exact path="/" component={Root}/>
+          <Route exact path="/candidater" />
+          <Route exact path="/formation/ig" component={FormationIg} />
+          <Route exact path="/formation/do" component={FormationDo} />
+          <Route exact path="/contact" />
+          <Route exact path="/" component={Root} />
         </Switch>
       </div>
     </Router>
