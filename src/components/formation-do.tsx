@@ -42,9 +42,9 @@ class FormationDo extends React.Component<IProps, IState> {
 
   renderText() {
     if (this.state.connected) {
-      return <textarea className='mainText' value={this.state.mainText} onChange={(event) => this.handleChange(event)} />
+      return <textarea className='mainText' value={this.state.mainText} onChange={(event) => this.handleChange(event)} />;
     } else {
-      return <span className='mainText'>{this.state.mainText}</span>
+      return <span className='mainText'>{this.state.mainText}</span>;
     }
   }
 
