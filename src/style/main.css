@@ -44,6 +44,10 @@
     color:#b3b3b3;
     margin:auto;
     max-width: 65%;
+    width:65%;
+    font-size:14px;
+    min-height: 100px;
     text-align:justify;
     display:block;
+    border:none !important;
 }

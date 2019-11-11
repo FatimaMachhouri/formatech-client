@@ -9,7 +9,8 @@ const fakeText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
 
 interface IState {
   activeElement: string,
-  connected: boolean
+  connected: boolean,
+  mainText: string;
 }
 
 interface IProps {
@@ -21,14 +22,32 @@ class FormationIg extends React.Component<IProps, IState> {
     super(props);
     this.state = {
       activeElement: '',
-      connected: false
+      connected: false,
+      mainText : fakeText
     };
     this.changeActiveElement = this.changeActiveElement.bind(this);
+    this.renderText = this.renderText.bind(this);
+
     const issues = verifyToken();
     issues.then((connectState) => {
       this.setState({ connected: connectState });
     });
   }
+
+  
+  handleChange(event: React.ChangeEvent<HTMLTextAreaElement>) {
+    this.setState({ mainText: event.target.value });
+  }
+
+
+  renderText() {
+    if (this.state.connected) {
+      return <textarea className='mainText' value={this.state.mainText} onChange={(event) => this.handleChange(event)} />
+    } else {
+      return <span className='mainText'>{this.state.mainText}</span>
+    }
+  }
+
 
   changeActiveElement(elem: string) {
     this.setState({ activeElement: elem });
@@ -38,7 +57,7 @@ class FormationIg extends React.Component<IProps, IState> {
     return (
       <div className="root">
         <MainTitle name="Informatique et Gestion" connected={this.state.connected} />
-        <span className='mainText'>{fakeText}</span>
+        {this.renderText()}
         <div className="informations">
           <IgForm handleClick={this.changeActiveElement} />
           <Tuile name={this.state.activeElement} />
