@@ -55,29 +55,29 @@ class MenuBar extends React.Component<IProps, IState> {
     return (
       <div className='menuBarContent'>
         <div className={this.state.classNameBurger} id='burger'>
-          <img src={cross} className='cross' onClick={this.closeBurger} alt='close menu.'/>
-          <Link className='burgerElement' to="/" style={{textDecoration:'none', color:'black'}}> ACCUEIL </Link>
-          <Link className='burgerElement' to="/candidater" style={{textDecoration:'none', color:'black'}}> CANDIDATER </Link>
+          <img src={cross} className='cross' onClick={this.closeBurger} alt='close menu.' />
+          <Link className='burgerElement' to="/" style={{ textDecoration: 'none', color: 'black' }}> ACCUEIL </Link>
+          <Link className='burgerElement' to="/candidater" style={{ textDecoration: 'none', color: 'black' }}> CANDIDATER </Link>
           <p className='burgerElement' onClick={this.showSubMenuMobile}> FORMATIONS </p>
           <div className={this.state.classNameSubMenu}>
-            <p className='subBurger'> <Link to="/formation/ig" style={{textDecoration:'none', color:'black'}}> IG </Link> </p>
-            <p className='subBurger'> <Link to="/formation/do" style={{textDecoration:'none', color:'black'}}> DO </Link> </p>
+            <p className='subBurger'> <Link to="/formation/ig" style={{ textDecoration: 'none', color: 'black' }}> IG </Link> </p>
+            <p className='subBurger'> <Link to="/formation/do" style={{ textDecoration: 'none', color: 'black' }}> DO </Link> </p>
           </div>
-          <Link className='burgerElement' to="/contact" style={{textDecoration:'none', color:'black'}}> CONTACT </Link>
+          <Link className='burgerElement' to="/contact" style={{ textDecoration: 'none', color: 'black' }}> CONTACT </Link>
         </div>
 
         <div className='MenuBar'>
           <header className='App-header'>
-          <Link className='menuElement' to="/"><img src={logo} className='polytechLogo' alt='Logo de polytech' /></Link>
-            <Link className='menuElement' to="/" style={{textDecoration:'none', color:'black'}}> ACCUEIL </Link>
-            <Link className='menuElement' to="/candidater" style={{textDecoration:'none', color:'black'}}> CANDIDATER </Link>
+            <Link className='menuElement' to="/"><img src={logo} className='polytechLogo' alt='Logo de polytech' /></Link>
+            <Link className='menuElement' to="/" style={{ textDecoration: 'none', color: 'black' }}> ACCUEIL </Link>
+            <Link className='menuElement' to="/candidater" style={{ textDecoration: 'none', color: 'black' }}> CANDIDATER </Link>
             <p className='menuElement' onClick={this.showSubMenu}> FORMATIONS </p>
             <div className={this.state.classNameSubMenuFloat}>
-              <p className='subBurger'> <Link to="/formation/ig" style={{textDecoration:'none', color:'black'}}> IG </Link> </p>
-              <p className='subBurger'> <Link to="/formation/do" style={{textDecoration:'none', color:'black'}}> DO </Link> </p>
+              <p className='subBurger'> <Link to="/formation/ig" style={{ textDecoration: 'none', color: 'black' }}> IG </Link> </p>
+              <p className='subBurger'> <Link to="/formation/do" style={{ textDecoration: 'none', color: 'black' }}> DO </Link> </p>
             </div>
-            <Link className='menuElement' to="/contact" style={{textDecoration:'none', color:'black'}}> CONTACT </Link>
-            <img className="burgerIcon" src={burger} onClick={this.openBurger} alt="burger menu"/>
+            <Link className='menuElement' to="/contact" style={{ textDecoration: 'none', color: 'black' }}> CONTACT </Link>
+            <img className="burgerIcon" src={burger} onClick={this.openBurger} alt="burger menu" />
           </header>
         </div>
       </div>
