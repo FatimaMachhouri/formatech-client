@@ -42,7 +42,7 @@ class Login extends React.Component<IProps, IState> {
           <form>
             <input type="text" placeholder="alice@mail.com" onChange={(event) => this.changeEmail(event)}/>
             <input type="password" placeholder="mon-mot-de-passe" onChange={(event) => this.changePass(event)}/>
-            <button onClick={ () => this.connect()}>Se connecter</button>
+            <button onClick={this.connect}>Se connecter</button>
           </form>
         </div>
         <p className="detail"> Connectez-vous afin de modifier le contenu de la plateforme.</p>
