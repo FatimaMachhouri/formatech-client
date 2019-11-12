@@ -68,7 +68,7 @@ class MenuBar extends React.Component<IProps, IState> {
 
         <div className='MenuBar'>
           <header className='App-header'>
-            <img src={logo} className='polytechLogo' alt='Logo de polytech' />
+          <Link className='menuElement' to="/"><img src={logo} className='polytechLogo' alt='Logo de polytech' /></Link>
             <Link className='menuElement' to="/" style={{textDecoration:'none', color:'black'}}> ACCUEIL </Link>
             <Link className='menuElement' to="/candidater" style={{textDecoration:'none', color:'black'}}> CANDIDATER </Link>
             <p className='menuElement' onClick={this.showSubMenu}> FORMATIONS </p>
