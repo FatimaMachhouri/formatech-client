@@ -7,17 +7,27 @@ import FormationIg from './components/formation-ig';
 
 export default function App() {
   return (
+    <div>
+      <MenuBar />
+      {/* A <Switch> looks through its children <Route>s and
+        renders the first one that matches the current URL. */}
       <Switch>
-        <div>
-          <MenuBar />
-          {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
-          <Route exact path="/candidater" />
-          <Route exact path="/formation/ig" component={FormationIg} />
-          <Route exact path="/formation/do" component={FormationDo} />
-          <Route exact path="/contact" />
-          <Route exact path="/" component={Root} />
-        </div>
+        <Route exact path="/candidater">
+          null
+      </Route>
+        <Route exact path="/formation/ig">
+          <FormationIg />
+        </Route>
+        <Route exact path="/formation/do">
+          <FormationDo />
+        </Route>
+        <Route exact path="/contact">
+          null
+      </Route>
+        <Route exact path="/">
+          <Root />
+        </Route>
       </Switch>
+    </div>
   );
 }
