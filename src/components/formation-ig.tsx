@@ -2,20 +2,31 @@ import React from 'react';
 import '../style/formation.css';
 import MainTitle from './mainTitle';
 import Tuile from './tuile';
-import igpicture from '../img/ig-infos.svg';
+import IgForm from './ig-form';
 
 const fakeText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel odio erat. Integer pharetra dui sit amet mauris hendrerit, id faucibus lectus lobortis. Vestibulum efficitur ultrices enim eget congue. Donec porta, nunc a facilisis mollis, erat eros vulputate tortor, et maximus urna urna vel justo. Etiam blandit massa eget tincidunt hendrerit. ';
 
 interface IState {
-    name?: string;
-    className?: string;
+  activeElement: string
 }
 
 interface IProps {
-    name: string;
-    className: string;
+
 }
-class FormationIg extends React.Component {
+
+class FormationIg extends React.Component<IProps, IState> {
+  constructor(props: IProps) {
+    super(props);
+    this.state = {
+      activeElement: ''
+    };
+
+    this.changeActiveElement = this.changeActiveElement.bind(this);
+  }
+
+  changeActiveElement(elem: string) {
+    this.setState({activeElement: elem});
+  }
 
   render() {
     return (
@@ -23,8 +34,8 @@ class FormationIg extends React.Component {
         <MainTitle name="Informatique et Gestion" />
         <span className='mainText'>{fakeText}</span>
         <div className="informations">
-          <img src={igpicture} className="picture-formation" alt="ig illustration"/>
-          <Tuile name="Simple Title" />
+          <IgForm handleClick={this.changeActiveElement}/>
+          <Tuile name={this.state.activeElement} />
         </div>
       </div>
     );
