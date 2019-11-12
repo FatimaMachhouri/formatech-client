@@ -40,7 +40,6 @@ class Tuile extends React.Component<IProps, IState> {
       </div>
     );
   }
-
 }
 
 export default Tuile;
