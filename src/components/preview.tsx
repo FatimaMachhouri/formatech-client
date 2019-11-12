@@ -1,16 +1,17 @@
 import React from 'react';
 import '../style/preview.css';
+import { Link } from 'react-router-dom';
 
 const fakeText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel odio erat. Integer pharetra dui sit amet mauris hendrerit, id faucibus lectus lobortis. Vestibulum efficitur ultrices enim eget congue. Donec porta, nunc a facilisis mollis, erat eros vulputate tortor, et maximus urna urna vel justo. Etiam blandit massa eget tincidunt hendrerit. ';
 
 interface IState {
-    name?: string;
-    className?: string;
+  name?: string;
+  className?: string;
 }
 
-interface IProps { 
-    name: string;
-    className: string;
+interface IProps {
+  name: string;
+  className: string;
 }
 class Preview extends React.Component<IProps, IState> {
   constructor(props: IProps) {
@@ -19,7 +20,7 @@ class Preview extends React.Component<IProps, IState> {
       name: this.props.name,
       className: this.props.className
     };
-        
+
   }
 
   render() {
@@ -29,12 +30,12 @@ class Preview extends React.Component<IProps, IState> {
           <span className="littleTitle">Formation</span>
           <span className="bigtitle">{this.state.name}</span>
           <p className="content">{fakeText}</p>
-          <a href={'/formation/' + this.state.className}> <div className="button"> <p className='buttonText'> Découvrir </p> </div> </a>
+          <Link className='burgerElement' to={'/formation/' + this.state.className}><div className="button"> <p className='buttonText'> Découvrir </p> </div></Link>
         </div>
       </div>
     );
   }
-    
+
 }
 
 export default Preview;
