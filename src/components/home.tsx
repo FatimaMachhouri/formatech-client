@@ -67,6 +67,7 @@ class Root extends React.Component<IProps, IState> {
   }
 
   save() {
+    console.log('try to save');
     const elementHome = {
       idHome: this.state.idHome,
       title: this.state.title,
@@ -80,14 +81,13 @@ class Root extends React.Component<IProps, IState> {
   render() {
     return (
       <div className="root">
-        {this.showSavedButton}
+        {this.showSavedButton()}
         <MainTitle name={this.state.title} connected={this.state.connected} />
         {this.renderText()}
         <div className="pres-formation">
           <Preview name="Développement Opérationnel" className="do" />
           <Preview name="Informatique et Gestion" className="ig" />
         </div>
-        <MainTitle name="Nous sommes là pour vous répondre" connected={this.state.connected} />
       </div>
     );
   }
