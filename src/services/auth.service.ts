@@ -32,7 +32,7 @@ const verifyToken = async () => {
         {
           headers: { Authorization: `Bearer ${token}` }
         });
-        if(res.status == 200){
+        if(res.status === 200){
           return true;
         }else{
           return false;
