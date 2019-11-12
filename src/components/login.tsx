@@ -1,8 +1,8 @@
 import React from 'react';
 import '../style/login.css';
-import lock from '../img/lock.svg'
-import { login } from '../services/auth.service'
-import User from '../models/user.model'
+import lock from '../img/lock.svg';
+import { login } from '../services/auth.service';
+import User from '../models/user.model';
 
 interface IState {
   email: string;
@@ -36,19 +36,19 @@ class Login extends React.Component<IProps, IState> {
   }
 
   connect = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-      event.preventDefault();
+    event.preventDefault();
     const user: User = new User();
     user.login = this.state.email;
     user.password = this.state.password;
-    const res = login(user)
-    console.log(res)
+    const res = login(user);
+    console.log(res);
   }
 
   render(){
     return (
       <div className="container-login">
         <div className="login-component">
-          <img src={lock} className="lock" />
+          <img src={lock} className="lock" alt="lock-logo"/>
           <form>
             <input type="text" placeholder="alice@mail.com" onChange={(event) => this.changeEmail(event)}/>
             <input type="password" placeholder="mon-mot-de-passe" onChange={(event) => this.changePass(event)}/>
