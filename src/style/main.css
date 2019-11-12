@@ -51,3 +51,35 @@
     display:block;
     border:none !important;
 }
+
+.save{
+    width:120px;
+    top:150px;
+    position: fixed;
+    right:0px;
+    background-color:white;
+    height:50px;
+    padding-top:20px;
+    border-radius: 120px 0% 0% 120px;
+    box-shadow: 0px 0px 3px #555;
+}
+
+.save-icon{
+    width:30px;
+    margin-left:20px;
+    display:inline-block;
+}
+
+.save-label{
+    font-weight: 200;
+    color: dodgerblue;
+    font-size: 12px;
+    margin-top: -20px;
+    margin-left: 10px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.invisible{
+    display:none;
+}

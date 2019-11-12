@@ -4,13 +4,15 @@ import MainTitle from './mainTitle';
 import Tuile from './tuile';
 import DoForm from './do-form';
 import { verifyToken } from '../services/auth.service';
-
-const fakeText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel odio erat. Integer pharetra dui sit amet mauris hendrerit, id faucibus lectus lobortis. Vestibulum efficitur ultrices enim eget congue. Donec porta, nunc a facilisis mollis, erat eros vulputate tortor, et maximus urna urna vel justo. Etiam blandit massa eget tincidunt hendrerit. ';
+import { getDoElements } from '../services/do.service';
+import Elem from '../models/element.model';
 
 interface IState {
   activeElement: string,
   connected: boolean,
   mainText: string;
+  title: string,
+  id:number
 }
 
 interface IProps {
@@ -23,7 +25,10 @@ class FormationDo extends React.Component<IProps, IState> {
     this.state = {
       activeElement: '',
       connected: false,
-      mainText: fakeText
+      mainText: '', 
+      title: '',
+      id : 0
+
     };
     this.changeActiveElement = this.changeActiveElement.bind(this);
     this.renderText = this.renderText.bind(this);
@@ -32,6 +37,20 @@ class FormationDo extends React.Component<IProps, IState> {
     issues.then((connectState) => {
       this.setState({ connected: connectState });
     });
+
+    const pageContent = getDoElements();
+    pageContent.then((allElements: Elem[]) => {
+      if (allElements !== undefined) {
+        console.log(allElements);
+        this.setState({
+          mainText: allElements[0]!.content,
+          title: allElements[0]!.title,
+          id: allElements[0]!.idElement
+        });
+      }
+
+    });
+
   }
 
 
