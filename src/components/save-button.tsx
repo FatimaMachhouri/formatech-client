@@ -1,5 +1,5 @@
 import React from 'react';
-import save from '../img/save.svg'
+import save from '../img/save.svg';
 import '../style/main.css';
 
 interface IState {
@@ -24,8 +24,8 @@ class Save extends React.Component<IProps, IState> {
     this.setState({
       clicked: true,
       labelClass: 'save-label'
-    })
-    this.props.save()
+    });
+    this.props.save();
   }
 
   render() {

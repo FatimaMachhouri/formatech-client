@@ -1,6 +1,6 @@
 import React from 'react';
 import MainTitle from './mainTitle';
-import Save from './save-button'
+import Save from './save-button';
 import '../style/main.css';
 import Preview from './preview';
 import { verifyToken } from '../services/auth.service';
@@ -62,7 +62,7 @@ class Root extends React.Component<IProps, IState> {
 
   showSavedButton() {
     if (this.state.connected) {
-      return <Save save={this.save} />
+      return <Save save={this.save} />;
     }
   }
 
@@ -71,10 +71,10 @@ class Root extends React.Component<IProps, IState> {
       idHome: this.state.idHome,
       title: this.state.title,
       content: this.state.mainText,
-      media: ""
-    }
-    updateElementInHome(elementHome)
-    console.log("content saved")
+      media: ''
+    };
+    updateElementInHome(elementHome);
+    console.log('content saved');
   }
 
   render() {
