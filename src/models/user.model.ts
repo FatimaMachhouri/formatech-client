@@ -1,5 +1,5 @@
 class User {
-  public idUser!: number;
+  public idUser?: number;
   public login!: string;
   public password!: string;
 };
