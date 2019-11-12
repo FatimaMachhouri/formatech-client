@@ -3,8 +3,9 @@ import '../style/formation.css';
 import MainTitle from './mainTitle';
 import Tuile from './tuile';
 import DoForm from './do-form';
+import Save from './save-button';
 import { verifyToken } from '../services/auth.service';
-import { getDoElements } from '../services/do.service';
+import { getDoElements, updateElementInDo } from '../services/do.service';
 import Elem from '../models/element.model';
 
 interface IState {
@@ -12,7 +13,7 @@ interface IState {
   connected: boolean,
   mainText: string;
   title: string,
-  id:number
+  id: number
 }
 
 interface IProps {
@@ -25,13 +26,15 @@ class FormationDo extends React.Component<IProps, IState> {
     this.state = {
       activeElement: '',
       connected: false,
-      mainText: '', 
+      mainText: '',
       title: '',
-      id : 0
+      id: 0
 
     };
     this.changeActiveElement = this.changeActiveElement.bind(this);
     this.renderText = this.renderText.bind(this);
+    this.save = this.save.bind(this);
+    this.showSavedButton = this.showSavedButton.bind(this);
 
     const issues = verifyToken();
     issues.then((connectState) => {
@@ -73,10 +76,28 @@ class FormationDo extends React.Component<IProps, IState> {
     this.setState({ activeElement: elem });
   }
 
+  showSavedButton() {
+    if (this.state.connected) {
+      return <Save save={this.save} />;
+    }
+  }
+
+  save() {
+    console.log('try to save');
+    const elementDo = {
+      idDo: this.state.id,
+      title: this.state.title,
+      content: this.state.mainText,
+      media: ''
+    };
+    updateElementInDo(elementDo);
+    console.log('content saved');
+  }
 
   render() {
     return (
       <div className="root">
+        {this.showSavedButton()}
         <MainTitle name="Dev Ops" connected={this.state.connected} />
         {this.renderText()}
         <div className="informations">
