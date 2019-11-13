@@ -3,6 +3,6 @@ button:focus {
 }
 
 button {
-    width:33%;
+    width:33.33% !important;
     border:none;
 }

@@ -1,7 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../style/tuileNav.css';
-import PropTypes from 'prop-types';
 
 class TuileNavigation extends React.Component {
   render() {
@@ -16,8 +16,8 @@ class TuileNavigation extends React.Component {
 }
 
 TuileNavigation.propTypes = {
-    formation: PropTypes.string.isRequired,
-    handleClick: PropTypes.any.isRequired,
+  formation: PropTypes.string.isRequired,
+  handleClick: PropTypes.any.isRequired,
 }
 
 export default TuileNavigation;

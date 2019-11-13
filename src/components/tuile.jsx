@@ -1,11 +1,10 @@
 import React from 'react';
-import '../style/tuile.css';
-import cross from '../img/cross.svg';
-import PropTypes from 'prop-types';
-
-import TuileNavigation from './tuileNav';
-import axios from 'axios';
 import * as config from '../config/configApi';
+import cross from '../img/cross.svg';
+import axios from 'axios';
+import TuileNavigation from './tuileNav';
+import PropTypes from 'prop-types';
+import '../style/tuile.css';
 
 class Tuile extends React.Component {
   constructor(props) {
