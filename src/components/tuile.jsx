@@ -84,14 +84,14 @@ class Tuile extends React.Component {
         </div>
         {
           this.getSemesters(this.state.content).map(sem =>
-            <div key='key'>
+            <div key={sem.id}>
               <span className='content'> {sem.split(":")[0]} </span>
               <ul>
                 {this.getModules(sem.split(':')[1]).map(ue =>
-                <li className='content2' key='key'>
+                <li className='content2' key={ue.id}>
                   {ue.split('~')[0]}
                   <ul>
-                {this.getSubjects(ue.split('~')[1]).map(sub => <li key='key'> {sub}</li>)}
+                {this.getSubjects(ue.split('~')[1]).map(sub => <li key={sub.id}> {sub}</li>)}
                   </ul>
                 </li>
                 )}
