@@ -6,7 +6,7 @@ import Save from './save-button';
 import IgForm from './ig-form';
 import { verifyToken } from '../services/auth.service';
 import { getIgElements, updateElementInIg } from '../services/ig.service';
-import Elem from '../models/element.model';
+import IgElem from '../models/igElem'
 
 interface IState {
   activeElement: string,
@@ -48,12 +48,12 @@ class FormationIg extends React.Component<IProps, IState> {
 
   componentDidMount() {
     const pageContent = getIgElements();
-    pageContent.then((allElements: Elem[]) => {
+    pageContent.then((allElements: IgElem[]) => {
       if (allElements !== undefined) {
         this.setState({
           mainText: allElements[0].content,
           title: allElements[0].title,
-          id: allElements[0].idElement,
+          id: allElements[0].idIg
         });
       }
     });

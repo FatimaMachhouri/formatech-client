@@ -6,7 +6,7 @@ import DoForm from './do-form';
 import Save from './save-button';
 import { verifyToken } from '../services/auth.service';
 import { getDoElements, updateElementInDo } from '../services/do.service';
-import Elem from '../models/element.model';
+import DoElem from '../models/doElem.model';
 
 interface IState {
   activeElement: string,
@@ -43,13 +43,13 @@ class FormationDo extends React.Component<IProps, IState> {
     });
 
     const pageContent = getDoElements();
-    pageContent.then((allElements: Elem[]) => {
+    pageContent.then((allElements: DoElem[]) => {
       if (allElements !== undefined) {
         console.log(allElements);
         this.setState({
           mainText: allElements[0]!.content,
           title: allElements[0]!.title,
-          id: allElements[0]!.idElement
+          id: allElements[0]!.idDo
         });
       }
 
