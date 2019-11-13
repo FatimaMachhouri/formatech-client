@@ -43,7 +43,6 @@ class FormationIg extends React.Component<IProps, IState> {
       this.setState({ connected: connectState });
     });
 
-    
   }
 
   componentDidMount() {
