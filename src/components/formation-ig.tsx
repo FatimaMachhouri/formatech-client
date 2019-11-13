@@ -28,30 +28,37 @@ class FormationIg extends React.Component<IProps, IState> {
       connected: false,
       mainText: '',
       title: '',
-      id: 0
+      id: -1
     };
+
+
     this.changeActiveElement = this.changeActiveElement.bind(this);
     this.renderText = this.renderText.bind(this);
     this.save = this.save.bind(this);
     this.showSavedButton = this.showSavedButton.bind(this);
+    this.changeTitle = this.changeTitle.bind(this);
 
     const issues = verifyToken();
     issues.then((connectState) => {
       this.setState({ connected: connectState });
     });
 
+    
+  }
+
+  componentDidMount() {
     const pageContent = getIgElements();
     pageContent.then((allElements: Elem[]) => {
       if (allElements !== undefined) {
-        console.log(allElements);
         this.setState({
-          mainText: allElements[0]!.content,
-          title: allElements[0]!.title,
-          id: allElements[0]!.idElement, 
+          mainText: allElements[0].content,
+          title: allElements[0].title,
+          id: allElements[0].idElement,
         });
       }
-
     });
+
+
   }
 
 
@@ -80,7 +87,6 @@ class FormationIg extends React.Component<IProps, IState> {
   }
 
   save() {
-    console.log('try to save');
     const elementIg = {
       idIg: this.state.id,
       title: this.state.title,
@@ -88,14 +94,17 @@ class FormationIg extends React.Component<IProps, IState> {
       media: ''
     };
     updateElementInIg(elementIg);
-    console.log('content saved');
+  }
+
+  changeTitle(elem: string) {
+    this.setState({title:elem})
   }
 
   render() {
     return (
       <div className="root">
         {this.showSavedButton()}
-        <MainTitle name={this.state.title} connected={this.state.connected} />
+        <MainTitle name={this.state.title} connected={this.state.connected} action={this.changeTitle} />
         {this.renderText()}
         <div className="informations">
           <IgForm handleClick={this.changeActiveElement} />

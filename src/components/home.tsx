@@ -46,6 +46,7 @@ class Root extends React.Component<IProps, IState> {
     this.renderText = this.renderText.bind(this);
     this.save = this.save.bind(this);
     this.showSavedButton = this.showSavedButton.bind(this);
+    this.changeTitle = this.changeTitle.bind(this);
   }
 
   renderText() {
@@ -55,6 +56,11 @@ class Root extends React.Component<IProps, IState> {
       return <span className='mainText'>{this.state.mainText}</span>;
     }
   }
+
+  changeTitle(elem: string) {
+    this.setState({ title: elem })
+  }
+
 
   handleChange(event: React.ChangeEvent<HTMLTextAreaElement>) {
     this.setState({ mainText: event.target.value });
@@ -82,7 +88,7 @@ class Root extends React.Component<IProps, IState> {
     return (
       <div className="root">
         {this.showSavedButton()}
-        <MainTitle name={this.state.title} connected={this.state.connected} />
+        <MainTitle name={this.state.title} connected={this.state.connected} action={this.changeTitle}/>
         {this.renderText()}
         <div className="pres-formation">
           <Preview name="Développement Opérationnel" className="do" />
