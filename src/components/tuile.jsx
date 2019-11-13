@@ -49,7 +49,7 @@ class Tuile extends React.Component {
 
   getSemesters(elem) {
     let sem = elem.split('//');
-    if (elem == undefined) return Array()
+    if (elem === undefined) return []
     else {
       sem.shift();
       return sem
@@ -57,7 +57,7 @@ class Tuile extends React.Component {
   }
 
   getModules(elem) {
-    if (elem == undefined) return Array()
+    if (elem === undefined) return []
     else {
       let mod = elem.split('_')
       mod.shift()
@@ -66,7 +66,7 @@ class Tuile extends React.Component {
   }
 
   getSubjects(elem) {
-    if (elem == undefined) return Array()
+    if (elem === undefined) return []
     else return elem.split(',')
   }
 
