@@ -35,7 +35,7 @@ class FormationIg extends React.Component<IProps, IState> {
         <span className='mainText'>{fakeText}</span>
         <div className="informations">
           <IgForm handleClick={this.changeActiveElement}/>
-          <Tuile name={this.state.activeElement} />
+          <Tuile name={this.state.activeElement} formationName="IG"/>
         </div>
       </div>
     );
