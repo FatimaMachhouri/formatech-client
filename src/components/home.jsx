@@ -7,7 +7,7 @@ import { verifyToken } from '../services/auth.service';
 import { getHomeElements, updateElementInHome } from '../services/home.service';
 
 
-class Root extends React.Component{
+class Root extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -25,10 +25,11 @@ class Root extends React.Component{
     const pageContent = getHomeElements();
     pageContent.then((allElements) => {
       if (allElements !== undefined) {
+        console.log(allElements)
         this.setState({
           mainText: allElements[0].content,
           title: allElements[0].title,
-          idHome: allElements[0].idElement
+          idHome: allElements[0].idHome
         });
       }
 
@@ -37,6 +38,7 @@ class Root extends React.Component{
     this.renderText = this.renderText.bind(this);
     this.save = this.save.bind(this);
     this.showSavedButton = this.showSavedButton.bind(this);
+    this.changeTitle = this.changeTitle.bind(this);
   }
 
   renderText() {
@@ -46,6 +48,11 @@ class Root extends React.Component{
       return <span className='mainText'>{this.state.mainText}</span>;
     }
   }
+
+  changeTitle(elem) {
+    this.setState({ title: elem });
+  }
+
 
   handleChange(event) {
     this.setState({ mainText: event.target.value });
@@ -58,6 +65,7 @@ class Root extends React.Component{
   }
 
   save() {
+    console.log('try to save');
     const elementHome = {
       idHome: this.state.idHome,
       title: this.state.title,
@@ -71,17 +79,15 @@ class Root extends React.Component{
   render() {
     return (
       <div className="root">
-        {this.showSavedButton}
-        <MainTitle name={this.state.title} connected={this.state.connected} />
+        {this.showSavedButton()}
+        <MainTitle name={this.state.title} connected={this.state.connected} action={this.changeTitle}/>
         {this.renderText()}
         <div className="pres-formation">
           <Preview name="Développement Opérationnel" className="do" />
           <Preview name="Informatique et Gestion" className="ig" />
         </div>
-        <MainTitle name="Nous sommes là pour vous répondre" connected={this.state.connected} />
       </div>
     );
   }
 }
 export default Root;
-

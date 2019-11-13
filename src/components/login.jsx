@@ -2,8 +2,7 @@ import React from 'react';
 import '../style/login.css';
 import lock from '../img/lock.svg';
 import { login } from '../services/auth.service';
-
-
+import { withRouter } from 'react-router-dom';
 
 class Login extends React.Component{
   
@@ -32,7 +31,9 @@ class Login extends React.Component{
     const user = {};
     user.login = this.state.email;
     user.password = this.state.password;
-    const res = login(user);
+    const res = login(user).then(res => {
+      this.props.history.push('/');
+    });
     console.log(res);
   }
 
@@ -53,4 +54,4 @@ class Login extends React.Component{
   }
 }
 
-export default Login;
+export default withRouter(Login);

@@ -3,9 +3,9 @@ import '../style/formation.css';
 import MainTitle from './mainTitle';
 import Tuile from './tuile';
 import DoForm from './do-form';
+import Save from './save-button';
 import { verifyToken } from '../services/auth.service';
-import { getDoElements } from '../services/do.service';
-
+import { getDoElements, updateElementInDo } from '../services/do.service';
 
 class FormationDo extends React.Component {
 
@@ -14,13 +14,16 @@ class FormationDo extends React.Component {
     this.state = {
       activeElement: '',
       connected: false,
-      mainText: '', 
+      mainText: '',
       title: '',
-      id : 0
+      id: 0
 
     };
     this.changeActiveElement = this.changeActiveElement.bind(this);
     this.renderText = this.renderText.bind(this);
+    this.save = this.save.bind(this);
+    this.showSavedButton = this.showSavedButton.bind(this);
+    this.changeTitle = this.changeTitle.bind(this);
 
     const issues = verifyToken();
     issues.then((connectState) => {
@@ -34,7 +37,7 @@ class FormationDo extends React.Component {
         this.setState({
           mainText: allElements[0].content,
           title: allElements[0].title,
-          id: allElements[0].idElement
+          id: allElements[0].idDo
         });
       }
 
@@ -57,16 +60,38 @@ class FormationDo extends React.Component {
   }
 
 
+  changeTitle(elem) {
+    this.setState({ title: elem });
+  }
+
 
   changeActiveElement(elem) {
     this.setState({ activeElement: elem });
   }
 
+  showSavedButton() {
+    if (this.state.connected) {
+      return <Save save={this.save} />;
+    }
+  }
+
+  save() {
+    console.log('try to save');
+    const elementDo = {
+      idDo: this.state.id,
+      title: this.state.title,
+      content: this.state.mainText,
+      media: ''
+    };
+    updateElementInDo(elementDo);
+    console.log('content saved');
+  }
 
   render() {
     return (
       <div className="root">
-        <MainTitle name="Dev Ops" connected={this.state.connected} />
+        {this.showSavedButton()}
+        <MainTitle name={this.state.title} connected={this.state.connected} action={this.changeTitle}/>
         {this.renderText()}
         <div className="informations">
           <DoForm handleClick={this.changeActiveElement} />
