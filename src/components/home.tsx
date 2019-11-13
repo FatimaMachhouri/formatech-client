@@ -58,7 +58,7 @@ class Root extends React.Component<IProps, IState> {
   }
 
   changeTitle(elem: string) {
-    this.setState({ title: elem })
+    this.setState({ title: elem });
   }
 
 

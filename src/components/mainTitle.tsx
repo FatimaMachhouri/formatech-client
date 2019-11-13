@@ -37,7 +37,7 @@ class MainTitle extends React.Component<IProps, IState> {
 
   handleChange(event: React.ChangeEvent<HTMLTextAreaElement>) {
     this.setState({ content: event.target.value, edit: true });
-    this.props.action(event.target.value)
+    this.props.action(event.target.value);
   }
 
   render() {
