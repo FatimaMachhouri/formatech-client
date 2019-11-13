@@ -1,8 +1,8 @@
-class Elem {
-  public idElement!: number;
+class HomeElem {
+  public idHome!: number;
   public title!: string;
   public content!: string;
   public media!: string;
 };
 
-export default Elem;
+export default HomeElem;

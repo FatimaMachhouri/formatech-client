@@ -5,7 +5,7 @@ import '../style/main.css';
 import Preview from './preview';
 import { verifyToken } from '../services/auth.service';
 import { getHomeElements, updateElementInHome } from '../services/home.service';
-import Element from '../models/element.model';
+import HomeElem from '../models/homeElem.model';
 
 interface IState {
   connected: boolean;
@@ -32,12 +32,12 @@ class Root extends React.Component<IProps, IState> {
     });
 
     const pageContent = getHomeElements();
-    pageContent.then((allElements: [Element]) => {
+    pageContent.then((allElements: HomeElem[]) => {
       if (allElements !== undefined) {
         this.setState({
           mainText: allElements[0]!.content,
           title: allElements[0]!.title,
-          idHome: allElements[0]!.idElement
+          idHome: allElements[0]!.idHome
         });
       }
 
@@ -46,6 +46,7 @@ class Root extends React.Component<IProps, IState> {
     this.renderText = this.renderText.bind(this);
     this.save = this.save.bind(this);
     this.showSavedButton = this.showSavedButton.bind(this);
+    this.changeTitle = this.changeTitle.bind(this);
   }
 
   renderText() {
@@ -55,6 +56,11 @@ class Root extends React.Component<IProps, IState> {
       return <span className='mainText'>{this.state.mainText}</span>;
     }
   }
+
+  changeTitle(elem: string) {
+    this.setState({ title: elem });
+  }
+
 
   handleChange(event: React.ChangeEvent<HTMLTextAreaElement>) {
     this.setState({ mainText: event.target.value });
@@ -67,6 +73,7 @@ class Root extends React.Component<IProps, IState> {
   }
 
   save() {
+    console.log('try to save');
     const elementHome = {
       idHome: this.state.idHome,
       title: this.state.title,
@@ -80,14 +87,13 @@ class Root extends React.Component<IProps, IState> {
   render() {
     return (
       <div className="root">
-        {this.showSavedButton}
-        <MainTitle name={this.state.title} connected={this.state.connected} />
+        {this.showSavedButton()}
+        <MainTitle name={this.state.title} connected={this.state.connected} action={this.changeTitle}/>
         {this.renderText()}
         <div className="pres-formation">
           <Preview name="Développement Opérationnel" className="do" />
           <Preview name="Informatique et Gestion" className="ig" />
         </div>
-        <MainTitle name="Nous sommes là pour vous répondre" connected={this.state.connected} />
       </div>
     );
   }
