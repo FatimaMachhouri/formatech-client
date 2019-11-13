@@ -6,7 +6,7 @@ import Save from './save-button';
 import IgForm from './ig-form';
 import { verifyToken } from '../services/auth.service';
 import { getIgElements, updateElementInIg } from '../services/ig.service';
-import IgElem from '../models/igElem'
+import IgElem from '../models/igElem';
 
 interface IState {
   activeElement: string,
