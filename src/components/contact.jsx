@@ -32,7 +32,7 @@ class Contact extends React.Component {
   }
 
   deleteElem(id) {
-    deleteElementInContact(id).then(res => {
+    deleteElementInContact(id).then(() => {
       const pageContent = getContactElements();
       pageContent.then((allElements) => {
         if (allElements !== undefined) {
