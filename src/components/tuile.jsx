@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 
 const fakeText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel odio erat. Integer pharetra dui sit amet mauris hendrerit, id faucibus lectus lobortis. Vestibulum efficitur ultrices enim eget congue. Donec porta, nunc a facilisis mollis, erat eros vulputate tortor, et maximus urna urna vel justo. Etiam blandit massa eget tincidunt hendrerit. ';
 
-class Tuile extends React.Component{
+class Tuile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

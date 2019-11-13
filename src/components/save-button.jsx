@@ -10,7 +10,7 @@ class Save extends React.Component {
     super(props);
     this.state = {
       clicked: false,
-      labelClass:'invisible'
+      labelClass: 'invisible'
     };
     this.save = this.save.bind(this);
   }
@@ -26,7 +26,7 @@ class Save extends React.Component {
   render() {
     return (
       <div className="save">
-        <img alt='save button' className={'save-icon'} src={save} onClick={this.save}/>
+        <img alt='save button' className={'save-icon'} src={save} onClick={this.save} />
         <span className={this.state.labelClass}>Enregistré</span>
       </div>
     );
