@@ -2,16 +2,9 @@ import React from 'react';
 import save from '../img/save.svg';
 import '../style/main.css';
 
-interface IState {
-  clicked: boolean,
-  labelClass: string
-}
-interface IProps {
-  save: any;
-}
 
-class Save extends React.Component<IProps, IState> {
-  constructor(props: IProps) {
+class Save extends React.Component {
+  constructor(props) {
     super(props);
     this.state = {
       clicked: false,

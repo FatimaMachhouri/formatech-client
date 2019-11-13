@@ -1,11 +1,8 @@
 import React from 'react';
 import '../style/ig-form.css';
 
-interface IProps {
-  handleClick:any
-}
 
-class IgForm extends React.Component<IProps> {
+class IgForm extends React.Component {
 
   render() {
     return (

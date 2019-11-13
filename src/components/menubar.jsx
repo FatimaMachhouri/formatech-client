@@ -6,15 +6,8 @@ import cross from '../img/cross.svg';
 import '../style/menubar.css';
 import { Link } from 'react-router-dom';
 
-interface IState {
-  classNameBurger?: string;
-  classNameSubMenu?: string;
-  classNameSubMenuFloat?: string;
-}
-
-interface IProps { }
-class MenuBar extends React.Component<IProps, IState> {
-  constructor(props: IProps) {
+class MenuBar extends React.Component {
+  constructor(props) {
     super(props);
     this.state = {
       classNameBurger: 'hidden',

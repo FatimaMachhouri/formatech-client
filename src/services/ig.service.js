@@ -2,9 +2,9 @@ import axios from 'axios';
 import * as config from '../config/configApi';
 import { getToken } from './token.service';
 
-export const getHomeElements = async () => {
+export const getIgElements = async () => {
   try {
-    const acc = await axios.get(`${config.API_URL}/accueil`);
+    const acc = await axios.get(`${config.API_URL}/ig`);
     return acc.data;
   }
   catch (error) {
@@ -12,10 +12,10 @@ export const getHomeElements = async () => {
   }
 };
 
-export const addHomeElement = async (elementHome: { title: string, content: string, media: string }) => {
+export const addIgElement = async (newIgElement) => {
   const token = getToken();
   try {
-    await axios.post(`${config.API_URL}/accueil`, elementHome,{
+    await axios.post(`${config.API_URL}/ig`, newIgElement,{
       headers: { Authorization: `Bearer ${token}` }
     });
   }
@@ -24,10 +24,10 @@ export const addHomeElement = async (elementHome: { title: string, content: stri
   }
 };
 
-export const updateElementInHome = async (elementHome: { idHome: number, title: string; content: string; media: string; }) => {
+export const updateElementInIg = async (igElement) => {
   const token = getToken();
   try {
-    await axios.put(`${config.API_URL}/accueil/modifier/${elementHome.idHome}`, elementHome,{
+    await axios.put(`${config.API_URL}/ig/modifier/${igElement.idIg}`, igElement,{
       headers: { Authorization: `Bearer ${token}` }
     });
   }
@@ -36,10 +36,10 @@ export const updateElementInHome = async (elementHome: { idHome: number, title: 
   }
 };
 
-export const deleteElementInHome = async (idHome: number) => {
+export const deleteElementInIg = async (idIg) => {
   const token = getToken();
   try {
-    await axios.delete(`${config.API_URL}/accueil/supprimer/${idHome}`,{
+    await axios.delete(`${config.API_URL}/ig/supprimer/${idIg}`,{
       headers: { Authorization: `Bearer ${token}` }
     });
   }

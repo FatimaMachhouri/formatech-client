@@ -1,17 +1,10 @@
 import React from 'react';
 import '../style/main.css';
 
-interface IProps {
-  name: string;
-  connected: boolean;
-}
 
-interface IState {
-  content: string;
-}
 
-class MainTitle extends React.Component<IProps,IState> {
-  constructor(props: IProps) {
+class MainTitle extends React.Component {
+  constructor(props) {
     super(props);
     this.content = this.content.bind(this);
     this.state = { content: this.props.name };
@@ -26,7 +19,7 @@ class MainTitle extends React.Component<IProps,IState> {
     }
   }
 
-  handleChange(event:React.ChangeEvent<HTMLTextAreaElement>) {
+  handleChange(event) {
     this.setState({content : event.target.value});
   }
 

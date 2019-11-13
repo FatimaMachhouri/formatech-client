@@ -2,20 +2,12 @@ import React from 'react';
 import '../style/login.css';
 import lock from '../img/lock.svg';
 import { login } from '../services/auth.service';
-import User from '../models/user.model';
-
-interface IState {
-  email: string;
-  password: string;
-}
-
-interface IProps {
-}
 
 
-class Login extends React.Component<IProps, IState> {
+
+class Login extends React.Component{
   
-  constructor(props: IProps) {
+  constructor(props) {
     super(props);
     this.state = {
       email: '',
@@ -27,17 +19,17 @@ class Login extends React.Component<IProps, IState> {
 
   }
 
-  changeEmail(event : React.ChangeEvent<HTMLInputElement>) {
+  changeEmail(event) {
     this.setState({email : event.target.value});
   }
 
-  changePass(event: React.ChangeEvent<HTMLInputElement>) {
+  changePass(event) {
     this.setState({ password: event.target.value});
   }
 
-  connect = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  connect = (event) => {
     event.preventDefault();
-    const user: User = new User();
+    const user = {};
     user.login = this.state.email;
     user.password = this.state.password;
     const res = login(user);

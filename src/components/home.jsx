@@ -5,19 +5,10 @@ import '../style/main.css';
 import Preview from './preview';
 import { verifyToken } from '../services/auth.service';
 import { getHomeElements, updateElementInHome } from '../services/home.service';
-import Element from '../models/element.model';
 
-interface IState {
-  connected: boolean;
-  mainText: string;
-  title: string;
-  idHome: number;
-}
-interface IProps {
-}
 
-class Root extends React.Component<IProps, IState> {
-  constructor(props: IProps) {
+class Root extends React.Component{
+  constructor(props) {
     super(props);
     this.state = {
       connected: false,
@@ -32,12 +23,12 @@ class Root extends React.Component<IProps, IState> {
     });
 
     const pageContent = getHomeElements();
-    pageContent.then((allElements: [Element]) => {
+    pageContent.then((allElements) => {
       if (allElements !== undefined) {
         this.setState({
-          mainText: allElements[0]!.content,
-          title: allElements[0]!.title,
-          idHome: allElements[0]!.idElement
+          mainText: allElements[0].content,
+          title: allElements[0].title,
+          idHome: allElements[0].idElement
         });
       }
 
@@ -56,7 +47,7 @@ class Root extends React.Component<IProps, IState> {
     }
   }
 
-  handleChange(event: React.ChangeEvent<HTMLTextAreaElement>) {
+  handleChange(event) {
     this.setState({ mainText: event.target.value });
   }
 

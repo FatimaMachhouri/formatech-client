@@ -2,34 +2,22 @@ import React from 'react';
 import '../style/formation.css';
 import MainTitle from './mainTitle';
 import Tuile from './tuile';
-import IgForm from './ig-form';
+import DoForm from './do-form';
 import { verifyToken } from '../services/auth.service';
-import { getIgElements } from '../services/ig.service';
-import Elem from '../models/element.model';
+import { getDoElements } from '../services/do.service';
 
-const fakeText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel odio erat. Integer pharetra dui sit amet mauris hendrerit, id faucibus lectus lobortis. Vestibulum efficitur ultrices enim eget congue. Donec porta, nunc a facilisis mollis, erat eros vulputate tortor, et maximus urna urna vel justo. Etiam blandit massa eget tincidunt hendrerit. ';
 
-interface IState {
-  activeElement: string,
-  connected: boolean,
-  mainText: string,
-  title: string,
-  id : number
-}
+class FormationDo extends React.Component {
 
-interface IProps {
-
-}
-
-class FormationIg extends React.Component<IProps, IState> {
-  constructor(props: IProps) {
+  constructor(props) {
     super(props);
     this.state = {
       activeElement: '',
       connected: false,
-      mainText: fakeText,
+      mainText: '', 
       title: '',
-      id: 0
+      id : 0
+
     };
     this.changeActiveElement = this.changeActiveElement.bind(this);
     this.renderText = this.renderText.bind(this);
@@ -39,22 +27,23 @@ class FormationIg extends React.Component<IProps, IState> {
       this.setState({ connected: connectState });
     });
 
-    const pageContent = getIgElements();
-    pageContent.then((allElements: Elem[]) => {
+    const pageContent = getDoElements();
+    pageContent.then((allElements) => {
       if (allElements !== undefined) {
         console.log(allElements);
         this.setState({
-          mainText: allElements[0]!.content,
-          title: allElements[0]!.title,
-          id: allElements[0]!.idElement
+          mainText: allElements[0].content,
+          title: allElements[0].title,
+          id: allElements[0].idElement
         });
       }
 
     });
+
   }
 
 
-  handleChange(event: React.ChangeEvent<HTMLTextAreaElement>) {
+  handleChange(event) {
     this.setState({ mainText: event.target.value });
   }
 
@@ -68,17 +57,19 @@ class FormationIg extends React.Component<IProps, IState> {
   }
 
 
-  changeActiveElement(elem: string) {
+
+  changeActiveElement(elem) {
     this.setState({ activeElement: elem });
   }
+
 
   render() {
     return (
       <div className="root">
-        <MainTitle name={this.state.title} connected={this.state.connected} />
+        <MainTitle name="Dev Ops" connected={this.state.connected} />
         {this.renderText()}
         <div className="informations">
-          <IgForm handleClick={this.changeActiveElement} />
+          <DoForm handleClick={this.changeActiveElement} />
           <Tuile name={this.state.activeElement} />
         </div>
       </div>
@@ -87,4 +78,4 @@ class FormationIg extends React.Component<IProps, IState> {
 
 }
 
-export default FormationIg;
+export default FormationDo;

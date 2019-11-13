@@ -2,9 +2,9 @@ import axios from 'axios';
 import * as config from '../config/configApi';
 import { getToken } from './token.service';
 
-export const getDoElements = async () => {
+export const getContactElements = async () => {
   try {
-    const acc = await axios.get(`${config.API_URL}/do`);
+    const acc = await axios.get(`${config.API_URL}/contact`);
     return acc.data;
   }
   catch (error) {
@@ -12,10 +12,10 @@ export const getDoElements = async () => {
   }
 };
 
-export const addDoElement = async (newDoElement: { title: string, content: string, media: string }) => {
+export const addContactElement = async (newContact) => {
   const token = getToken();
   try {
-    await axios.post(`${config.API_URL}/do`, newDoElement,{
+    await axios.post(`${config.API_URL}/contact`, newContact,{
       headers: { Authorization: `Bearer ${token}` }
     });
   }
@@ -24,10 +24,10 @@ export const addDoElement = async (newDoElement: { title: string, content: strin
   }
 };
 
-export const updateElementInDo = async (doElement: { idDo: number, title: string; content: string; media: string; }) => {
+export const updateElementInContact = async (contactElement) => {
   const token = getToken();
   try {
-    await axios.put(`${config.API_URL}/do/modifier/${doElement.idDo}`, doElement,{
+    await axios.put(`${config.API_URL}/contact/modifier/${contactElement.idContact}`, contactElement,{
       headers: { Authorization: `Bearer ${token}` }
     });
   }
@@ -36,10 +36,10 @@ export const updateElementInDo = async (doElement: { idDo: number, title: string
   }
 };
 
-export const deleteElementInDo = async (idDo: number) => {
+export const deleteElementInContact = async (idContact) => {
   const token = getToken();
   try {
-    await axios.delete(`${config.API_URL}/do/supprimer/${idDo}`,{
+    await axios.delete(`${config.API_URL}/contact/supprimer/${idContact}`,{
       headers: { Authorization: `Bearer ${token}` }
     });
   }

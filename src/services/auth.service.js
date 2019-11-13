@@ -1,10 +1,9 @@
 import axios from 'axios';
-import User from '../models/user.model';
 import { setToken, removeToken, getToken } from './token.service';
 import * as config from '../config/configApi';
 
 
-const login = async (user: User) => {
+const login = async (user) => {
   try {
     const res = await axios
       .post(`${config.API_URL}/utilisateur/connexion`, {
@@ -24,7 +23,7 @@ const logout = () => {
   removeToken();
 };
 
-const verifyToken = async ():Promise<boolean> => {
+const verifyToken = async () => {
   const token = getToken();
   try {
     const res = await axios

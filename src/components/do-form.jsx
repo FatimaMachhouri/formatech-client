@@ -1,11 +1,7 @@
 import React from 'react';
 import '../style/do-form.css';
 
-interface IProps {
-  handleClick:any
-}
-
-class DoForm extends React.Component<IProps> {
+class DoForm extends React.Component{
 
   render() {
     return (
