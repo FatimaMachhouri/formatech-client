@@ -35,7 +35,7 @@ const verifyToken = async ():Promise<boolean> => {
         if(res.status === 200){
           return true;
         }else{
-          logout();
+          removeToken();
           return false;
         }
     //return res.data;
