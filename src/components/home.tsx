@@ -38,19 +38,19 @@ class Root extends React.Component<IProps, IState> {
     const pageContent = getHomeElements();
     pageContent.then((allElements: HomeElem[]) => {
       if (allElements !== undefined) {
-        console.log(allElements)
+        console.log(allElements);
         this.setState({
           mainText: allElements[0]!.content,
           title: allElements[0]!.title,
           idHome: allElements[0]!.idHome,
         });
-        const elem1 = new HomeElem()
+        const elem1 = new HomeElem();
         elem1.content = allElements[1]!.content;
         elem1.idHome = allElements[1]!.idHome;
         elem1.media = allElements[1]!.media;
         elem1.title = allElements[1]!.title;
 
-        const elem2 = new HomeElem()
+        const elem2 = new HomeElem();
         elem2.content = allElements[2]!.content;
         elem2.idHome = allElements[2]!.idHome;
         elem2.media = allElements[2]!.media;
@@ -72,8 +72,8 @@ class Root extends React.Component<IProps, IState> {
     this.changeTitle = this.changeTitle.bind(this);
 
     // Functions to handle changes on Preview Components: 
-    this.changePreviewOne = this.changePreviewOne.bind(this)
-    this.changePreviewTwo = this.changePreviewTwo.bind(this)
+    this.changePreviewOne = this.changePreviewOne.bind(this);
+    this.changePreviewTwo = this.changePreviewTwo.bind(this);
 
 
   }

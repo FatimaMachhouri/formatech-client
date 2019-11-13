@@ -26,7 +26,7 @@ interface IProps {
 class Preview extends React.Component<IProps, IState> {
   constructor(props: IProps) {
     super(props);
-    console.log("j'ai ça:", this.props.className, this.props.elem)
+    console.log('j\'ai ça:', this.props.className, this.props.elem);
     this.state = {
       title: this.props.elem.title,
       className: this.props.className,
@@ -35,7 +35,7 @@ class Preview extends React.Component<IProps, IState> {
       id: -1,
       editedTitle: false,
       editedText: false
-    }
+    };
 
     const issues = verifyToken();
     issues.then((connectState) => {
@@ -43,9 +43,9 @@ class Preview extends React.Component<IProps, IState> {
     });
 
     this.save = this.save.bind(this);
-    this.displayTitle = this.displayTitle.bind(this)
-    this.handleChangeMainText = this.handleChangeMainText.bind(this)
-    this.handleChangeTitle = this.handleChangeTitle.bind(this)
+    this.displayTitle = this.displayTitle.bind(this);
+    this.handleChangeMainText = this.handleChangeMainText.bind(this);
+    this.handleChangeTitle = this.handleChangeTitle.bind(this);
 
 
   }
@@ -58,22 +58,22 @@ class Preview extends React.Component<IProps, IState> {
 
   save() {
     console.log('try to save');
-    const elemEdited = new HomeElem()
+    const elemEdited = new HomeElem();
 
     if (this.state.editedTitle) {
-      elemEdited.title = this.state.title
+      elemEdited.title = this.state.title;
     } else {
-      elemEdited.title = this.props.elem.title
+      elemEdited.title = this.props.elem.title;
     }
 
     if (this.state.editedText) {
-      elemEdited.content = this.state.mainText
+      elemEdited.content = this.state.mainText;
     } else {
-      elemEdited.content = this.props.elem.content
+      elemEdited.content = this.props.elem.content;
     }
-    elemEdited.idHome = this.props.elem.idHome
-    console.log(this.props.elem.idHome)
-    elemEdited.media = 'link of a video'
+    elemEdited.idHome = this.props.elem.idHome;
+    console.log(this.props.elem.idHome);
+    elemEdited.media = 'link of a video';
     updateElementInHome(elemEdited);
 
     console.log('content saved');
@@ -86,20 +86,20 @@ class Preview extends React.Component<IProps, IState> {
       if (this.props.connected) {
         return <textarea className="bigtitle" value={this.props.elem.title} onChange={(event) => this.handleChangeTitle(event)} />;
       } else {
-        return <span className="bigtitle">{this.props.elem.title}</span>
+        return <span className="bigtitle">{this.props.elem.title}</span>;
       }
     }
   }
 
   displayText() {
-    console.log(this.state.editedText)
+    console.log(this.state.editedText);
     if (this.state.editedText) {
       return <textarea className="content" value={this.state.mainText} onChange={(event) => this.handleChangeMainText(event)} />;
     } else {
       if (this.props.connected) {
         return <textarea className="content" value={this.props.elem.content} onChange={(event) => this.handleChangeMainText(event)} />;
       } else {
-        return <p className="content">{this.props.elem.content}</p>
+        return <p className="content">{this.props.elem.content}</p>;
       }
     }
   }
