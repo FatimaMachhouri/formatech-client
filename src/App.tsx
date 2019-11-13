@@ -4,6 +4,7 @@ import Root from './components/home';
 import MenuBar from './components/menubar';
 import FormationDo from './components/formation-do';
 import FormationIg from './components/formation-ig';
+import Contact from './components/contact';
 
 export default function App() {
   return (
@@ -22,8 +23,8 @@ export default function App() {
           <FormationDo />
         </Route>
         <Route exact path="/contact">
-          null
-      </Route>
+            <Contact />
+          </Route>
         <Route exact path="/">
           <Root />
         </Route>
