@@ -85,13 +85,22 @@
 }
 
 .content {
-    padding-top: 50px;
+    padding-top: 40px;
     color: #b3b3b3;
     margin: auto;
     max-width: 90%;
     text-align: justify;
     display: block;
-    padding-bottom:15px;
+    padding-bottom:5px;
+}
+
+.content2 {
+    color: #b3b3b3;
+    margin: auto;
+    max-width: 90%;
+    text-align: justify;
+    display: block;
+    padding-bottom:20px;
 }
 
 .visible {

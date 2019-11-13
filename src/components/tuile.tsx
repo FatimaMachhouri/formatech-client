@@ -41,9 +41,41 @@ class Tuile extends React.Component<IProps, IState> {
     if (elem === 'DO5') { semesters = (await axios.get(config.API_URL + '/sagesse/step/1190/modules')).data.periods; }
 
     let result = '';
-    for (let semester of semesters) { result += semester.title + ',' + semester.modules.map((elm: { id: string; title: string; }) => elm.id + ' ' + elm.title).toString() + '\n'; }
+    for (let semester of semesters) {
+      let tmpResult = "";
+      for (let module of semester.modules) {
+        if (module.category !== "this UE doesn't have a category for the moment") {
+          let subjects = (await axios.get(config.API_URL + '/sagesse/module/' + module.id)).data.subjects.map((elm: { title: any; }) => elm.title);
+          tmpResult = '_' + module.title + '-' + subjects + tmpResult;
+        }
+      }
+      result += '//' + semester.title + ':' + tmpResult;
+    }
 
     this.setState({content: result});
+  }
+
+  getSemesters(elem: string) {
+    let sem = elem.split('//');
+    if (elem == undefined) return Array()
+    else {
+      sem.shift();
+      return sem
+    }
+  }
+
+  getModules(elem: string) {
+    if (elem == undefined) return Array()
+    else {
+      let mod = elem.split('_')
+      mod.shift()
+      return mod
+    }
+  }
+
+  getSubjects(elem: string) {
+    if (elem == undefined) return Array()
+    else return elem.split(',')
   }
 
   render() {
@@ -58,14 +90,24 @@ class Tuile extends React.Component<IProps, IState> {
           </div>
           <img src={cross} className='cross' onClick={this.close} alt='close menu.' />
         </div>
-        {this.state.content.split('\n').map(elem => 
-          <div key="keyS">
-            <span className='content'> {elem.split(',').shift()} </span>
-            <ul>
-              { elem.split(',').slice(1).map(elm => <li className='moduleNameId' key={elm.split(' ')[0]}> {elm.split(' ')[1]} </li>) }
-            </ul>
-          </div>
-        )}
+        {
+          this.getSemesters(this.state.content).map(sem =>
+            <div>
+              <span className='content'> {sem.split(":")[0]} </span>
+              <ul>
+                {this.getModules(sem.split(':')[1]).map(ue =>
+                <li className='content2'> 
+                  {ue.split('-')[0]}
+                  <ul>
+                {this.getSubjects(ue.split('-')[1]).map(sub => <li> {sub}</li>)}
+                  </ul>
+                </li>
+                )}
+              </ul>
+
+            </div>
+          )}
+          
       </div>
     );
   }
