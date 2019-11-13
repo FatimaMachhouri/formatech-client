@@ -35,6 +35,7 @@ class FormationDo extends React.Component<IProps, IState> {
     this.renderText = this.renderText.bind(this);
     this.save = this.save.bind(this);
     this.showSavedButton = this.showSavedButton.bind(this);
+    this.changeTitle = this.changeTitle.bind(this);
 
     const issues = verifyToken();
     issues.then((connectState) => {
@@ -71,6 +72,10 @@ class FormationDo extends React.Component<IProps, IState> {
   }
 
 
+  changeTitle(elem: string) {
+    this.setState({ title: elem })
+  }
+
 
   changeActiveElement(elem: string) {
     this.setState({ activeElement: elem });
@@ -98,7 +103,7 @@ class FormationDo extends React.Component<IProps, IState> {
     return (
       <div className="root">
         {this.showSavedButton()}
-        <MainTitle name="Dev Ops" connected={this.state.connected} />
+        <MainTitle name={this.state.title} connected={this.state.connected} action={this.changeTitle}/>
         {this.renderText()}
         <div className="informations">
           <DoForm handleClick={this.changeActiveElement} />
