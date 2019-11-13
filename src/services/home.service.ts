@@ -1,5 +1,6 @@
 import axios from 'axios';
 import * as config from '../config/configApi';
+import { getToken } from './token.service';
 
 export const getHomeElements = async () => {
   try {
@@ -12,9 +13,11 @@ export const getHomeElements = async () => {
 };
 
 export const addHomeElement = async (elementHome: { title: string, content: string, media: string }) => {
-  //const token = localStorage.getItem('usertoken');
+  const token = getToken();
   try {
-    await axios.post(`${config.API_URL}/accueil`, elementHome);
+    await axios.post(`${config.API_URL}/accueil`, elementHome,{
+      headers: { Authorization: `Bearer ${token}` }
+    });
   }
   catch (error) {
     throw error.response;
@@ -22,9 +25,11 @@ export const addHomeElement = async (elementHome: { title: string, content: stri
 };
 
 export const updateElementInHome = async (elementHome: { idHome: number, title: string; content: string; media: string; }) => {
-  //const token = localStorage.getItem('usertoken');
+  const token = getToken();
   try {
-    await axios.put(`${config.API_URL}/accueil/modifier/${elementHome.idHome}`, elementHome);
+    await axios.put(`${config.API_URL}/accueil/modifier/${elementHome.idHome}`, elementHome,{
+      headers: { Authorization: `Bearer ${token}` }
+    });
   }
   catch (error) {
     throw error.response;
@@ -32,8 +37,11 @@ export const updateElementInHome = async (elementHome: { idHome: number, title: 
 };
 
 export const deleteElementInHome = async (idHome: number) => {
+  const token = getToken();
   try {
-    await axios.delete(`${config.API_URL}/accueil/supprimer/${idHome}`);
+    await axios.delete(`${config.API_URL}/accueil/supprimer/${idHome}`,{
+      headers: { Authorization: `Bearer ${token}` }
+    });
   }
   catch (error) {
     throw error.response;
