@@ -1,6 +1,6 @@
 import React from 'react';
 import '../style/main.css';
-
+import PropTypes from 'prop-types';
 
 class MainTitle extends React.Component {
   constructor(props) {
@@ -43,5 +43,12 @@ class MainTitle extends React.Component {
     );
   }
 }
+
+MainTitle.propTypes = {
+  name: PropTypes.string.isRequired,
+  action: PropTypes.func.isRequired,
+  connected: PropTypes.bool.isRequired,
+}
+
 
 export default MainTitle;

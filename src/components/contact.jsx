@@ -28,11 +28,11 @@ class Contact extends React.Component {
       }
 
     });
-    this.showDeleteButton = this.showDeleteButton.bind(this)
+    this.showDeleteButton = this.showDeleteButton.bind(this);
   }
 
   deleteElem(id) {
-    deleteElementInContact(id).then(res => {
+    deleteElementInContact(id).then(() => {
       const pageContent = getContactElements();
       pageContent.then((allElements) => {
         if (allElements !== undefined) {
@@ -42,7 +42,7 @@ class Contact extends React.Component {
           });
         }
       });
-    })
+    });
   }
 
   showDeleteButton(id) {
@@ -52,7 +52,6 @@ class Contact extends React.Component {
   }
 
   render() {
-    console.log('render' +this.state.contacts )
     return (
       <div className="container-contacts">
         {

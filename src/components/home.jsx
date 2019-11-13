@@ -25,7 +25,6 @@ class Root extends React.Component {
     const pageContent = getHomeElements();
     pageContent.then((allElements) => {
       if (allElements !== undefined) {
-        console.log(allElements)
         this.setState({
           mainText: allElements[0].content,
           title: allElements[0].title,
@@ -80,7 +79,7 @@ class Root extends React.Component {
     return (
       <div className="root">
         {this.showSavedButton()}
-        <MainTitle name={this.state.title} connected={this.state.connected} action={this.changeTitle}/>
+        <MainTitle name={this.state.title} connected={this.state.connected} action={this.changeTitle} />
         {this.renderText()}
         <div className="pres-formation">
           <Preview name="Développement Opérationnel" className="do" />

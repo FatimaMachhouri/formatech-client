@@ -1,9 +1,11 @@
 import React from 'react';
 import '../style/ig-form.css';
+import PropTypes from 'prop-types';
 
 
 class IgForm extends React.Component {
-
+ 
+  
   render() {
     return (
       <svg viewBox="0 0 918 931.9" >
@@ -941,6 +943,11 @@ class IgForm extends React.Component {
     );
   }
 
+}
+
+
+IgForm.propTypes = {
+  handleClick: PropTypes.func
 }
 
 export default IgForm;

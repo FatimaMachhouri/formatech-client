@@ -1,8 +1,11 @@
 import React from 'react';
 import '../style/do-form.css';
 
-class DoForm extends React.Component{
+import PropTypes from 'prop-types'
 
+
+class DoForm extends React.Component{
+  
   render() {
     return (
       <svg version="1.1" viewBox="0 0 1186.8 666.8" >
@@ -141,5 +144,10 @@ class DoForm extends React.Component{
     );
   }
 }
+
+DoForm.propTypes = {
+  handleClick: PropTypes.func
+}
+
 
 export default DoForm;

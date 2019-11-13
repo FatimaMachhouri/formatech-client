@@ -3,14 +3,16 @@ import '../style/login.css';
 import lock from '../img/lock.svg';
 import { login } from '../services/auth.service';
 import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-class Login extends React.Component{
-  
+
+class Login extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
       email: '',
-      password : ''
+      password: ''
     };
     this.changeEmail = this.changeEmail.bind(this);
     this.changePass = this.changePass.bind(this);
@@ -19,32 +21,32 @@ class Login extends React.Component{
   }
 
   changeEmail(event) {
-    this.setState({email : event.target.value});
+    this.setState({ email: event.target.value });
   }
 
   changePass(event) {
-    this.setState({ password: event.target.value});
+    this.setState({ password: event.target.value });
   }
 
-  connect = (event) => {
+  connect(event) {
     event.preventDefault();
     const user = {};
     user.login = this.state.email;
     user.password = this.state.password;
-    const res = login(user).then(res => {
+    const res = login(user).then(() => {
       this.props.history.push('/');
     });
     console.log(res);
   }
 
-  render(){
+  render() {
     return (
       <div className="container-login">
         <div className="login-component">
-          <img src={lock} className="lock" alt="lock-logo"/>
+          <img src={lock} className="lock" alt="lock-logo" />
           <form>
-            <input type="text" placeholder="alice@mail.com" onChange={(event) => this.changeEmail(event)}/>
-            <input type="password" placeholder="mon-mot-de-passe" onChange={(event) => this.changePass(event)}/>
+            <input type="text" placeholder="alice@mail.com" onChange={(event) => this.changeEmail(event)} />
+            <input type="password" placeholder="mon-mot-de-passe" onChange={(event) => this.changePass(event)} />
             <button onClick={this.connect}>Se connecter</button>
           </form>
         </div>
@@ -53,5 +55,11 @@ class Login extends React.Component{
     );
   }
 }
+
+Login.propTypes = {
+  name: PropTypes.string.isRequired,
+  history: PropTypes.func
+}
+
 
 export default withRouter(Login);

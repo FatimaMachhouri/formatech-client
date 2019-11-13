@@ -2,6 +2,8 @@ import React from 'react';
 import save from '../img/save.svg';
 import '../style/main.css';
 
+import PropTypes from 'prop-types';
+
 
 class Save extends React.Component {
   constructor(props) {
@@ -30,5 +32,10 @@ class Save extends React.Component {
     );
   }
 }
+
+Save.propTypes = {
+  save: PropTypes.func.isRequired
+}
+
 
 export default Save;
