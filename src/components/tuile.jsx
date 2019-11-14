@@ -87,23 +87,20 @@ class Tuile extends React.Component {
               <span className='content'> {sem.split(":")[0]} </span>
               <ul>
                 {this.getModules(sem.split(':')[1]).map(ue =>
-                <li className='content2' key={ue.id}>
-                  {ue.split('~')[0]}
-                  <ul>
-                {this.getSubjects(ue.split('~')[1]).map(sub => <li key={sub.id}> {sub}</li>)}
-                  </ul>
-                </li>
+                  <li className='content2' key={ue.id}>
+                    {ue.split('~')[0]}
+                    <ul> {this.getSubjects(ue.split('~')[1]).map(sub => <li key={sub.id}> {sub} </li>)} </ul>
+                  </li>
                 )}
               </ul>
-
             </div>
-          )}
-
+        )}
       </div>
     );
   }
 
 }
+
 
 Tuile.propTypes = {
   name: PropTypes.string.isRequired,

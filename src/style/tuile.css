@@ -8,12 +8,13 @@
         bottom: 0;
         z-index: 2;
     }
+
     .cross {
-    width:40px;
-    max-width:40px;
-    height:40px;
-    opacity: 0.6;
-    margin-top:-10px;
+        width:40px;
+        max-width:40px;
+        height:40px;
+        opacity: 0.6;
+        margin-top:-10px;
     }
 }
 
@@ -34,7 +35,6 @@
         margin-left:15px;
         opacity: 0.6;
     }
-
 }
 
 .mainTitle:before {
