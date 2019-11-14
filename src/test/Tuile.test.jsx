@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Tuile from '../components/Tuile'
-import TuileNav from '../components/TuileNav'
 import { create } from 'react-test-renderer'
+import Tuile from '../components/tuile'
+import TuileNav from '../components/tuileNav'
 
 describe("Tuile component", () => {
     test("renders without crashing", () => {
