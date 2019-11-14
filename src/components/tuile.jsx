@@ -35,11 +35,10 @@ class Tuile extends React.Component {
     for (let semester of semesters) {
       let tmpResult = "";
       for (let module of semester.modules) {
-        if (module.category !== "this UE doesn't have a category for the moment") {
-          let subjects = (await axios.get(config.API_URL + '/sagesse/module/' + module.id)).data.subjects.map((elm => elm.title));
-          tmpResult = '_' + module.title + '~' + subjects + tmpResult;
-        }
+        let subjects = (await axios.get(config.API_URL + '/sagesse/module/' + module.id)).data.subjects.map((elm => elm.title));
+        tmpResult = '_' + module.title + '~' + subjects + tmpResult;
       }
+
       result += '//' + semester.title + ':' + tmpResult;
     }
 
@@ -65,8 +64,8 @@ class Tuile extends React.Component {
   }
 
   getSubjects(elem) {
-    if (elem === undefined) return []
-    else return elem.split(',')
+    if (elem === undefined || elem === '') return []
+    else { return elem.split(',') }
   }
 
   render() {
