@@ -1,7 +1,7 @@
 import React from 'react';
 import '../style/do-form.css';
 
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 
 class DoForm extends React.Component{

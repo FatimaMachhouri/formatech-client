@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Save from './save-button';
 import { verifyToken } from '../services/auth.service';
 import { updateElementInHome } from '../services/home.service';
-
+import PropTypes from 'prop-types';
 
 
 class Preview extends React.Component {
@@ -98,9 +98,6 @@ class Preview extends React.Component {
   }
 
 
-
-
-
   render() {
     return (
       <div className="container-preview">
@@ -115,6 +112,12 @@ class Preview extends React.Component {
     );
   }
 
+}
+
+Preview.propTypes = {
+  elem: PropTypes.object.isRequired,
+  className: PropTypes.string.isRequired,
+  connected: PropTypes.bool.isRequired
 }
 
 export default Preview;
