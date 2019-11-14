@@ -1,0 +1,8 @@
+button:focus {
+    background-color: rgb(255, 255, 255);
+}
+
+button {
+    width:33.33% !important;
+    border:none;
+}

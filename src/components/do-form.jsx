@@ -1,16 +1,15 @@
 import React from 'react';
 import '../style/do-form.css';
 
-interface IProps {
-  handleClick:any
-}
+import PropTypes from 'prop-types';
 
-class DoForm extends React.Component<IProps> {
 
+class DoForm extends React.Component{
+  
   render() {
     return (
       <svg version="1.1" viewBox="0 0 1186.8 666.8" >
-        <g id="PRO" onClick={() => this.props.handleClick('PRO')}>
+        <g id="PRO" onClick={() => this.props.handleClick('Pro')}>
           <path className="do0" d="M593.4,539.7c5.9-8.6,12-17.1,17.7-25.9c23.8-36.7,40.1-77.9,47.8-121c2.3-12.6,3.4-25.3,4.9-37.9
             c2.3,0.5,1.8,2.5,2,4c9.5,76.8,68.8,142.2,144.6,159.7c1.3,0.3,2.6,0.7,4.4,1.1c-1.1,1.7-1.9,3.2-2.9,4.7
             c-12.6,18.8-25.2,37.6-37.9,56.3c-1.4,2.1-2.4,4.1-1.9,6.9c3.4,22,6.5,44.1,10.2,66.1c0.8,4.8-0.9,4.5-4.2,3.7
@@ -27,7 +26,7 @@ class DoForm extends React.Component<IProps> {
         </g>
 
          
-        <g id="OPS" onClick={() => this.props.handleClick('OPS')}>
+        <g id="OPS" onClick={() => this.props.handleClick('Ops')}>
           <path  className="do2" d="M593.4,539.7c-6.4,7.2-12.5,14.7-19.2,21.7c-49.7,52.2-109.8,85.7-180.7,99.4c-20.6,3.9-41.6,5.9-62.5,6
             c-4.3,0-4.6-1-3.2-4.8c8.2-20.9,16.2-41.9,24.4-62.8c1.1-2.4,1.1-5.2,0-7.6c-8.1-20.8-16.1-41.6-24.2-62.4c-2-5.3-2-5.3,3.8-5.4
             c66.9-1.3,119.4-29.7,157.6-84.5c16.5-23.7,26.2-50.4,30.2-79c0.4-3.2,1.7-4.6,4.5-5.7c22.3-8.6,44.7-17.3,67-26
@@ -45,7 +44,7 @@ class DoForm extends React.Component<IProps> {
             C588.5,459.8,589,469.7,582.7,479.1z"/>
         </g>
         
-        <g id="SECURITE" onClick={() => this.props.handleClick('SÉCURITÉ')}>
+        <g id="SECURITE" onClick={() => this.props.handleClick('Sécurité')}>
           <path className="do3" d="M1040.3,373.2c15.2,10.2,29.8,20.1,44.3,30c4.7,3.2,9.6,6.1,14,9.6c3.7,3,7.6,3.4,12.1,2.7
             c21.4-3.3,42.8-6.3,64.2-9.6c4.3-0.7,4.1,0.9,3.3,4.2c-29.2,112.5-97.6,191.1-205.4,234.5c-54.8,22-111.9,26.8-170.3,18.1
             c-4.8-0.7-6.1-2.8-6.7-7.1c-3-21.2-6.3-42.5-9.6-63.7c-0.5-2.4-0.1-5,1.3-7c13.3-19.7,26.7-39.4,39.7-59.4c2.4-3.7,5.2-2.8,8.2-2.5
@@ -70,7 +69,7 @@ class DoForm extends React.Component<IProps> {
             l7.9,4.4L1103.9,490z"/>
         </g>
         
-        <g id="EXPLOIT" onClick={() => this.props.handleClick('EXPLOITATION')}>
+        <g id="EXPLOIT" onClick={() => this.props.handleClick('Exploitation')}>
           <path className="do4" d="M1186.8,333.7c0.2,17.7-1.8,35.2-4.1,52.7c-0.5,3.6-1.8,5.2-5.8,5.7c-22.4,3.1-44.8,6.5-67.1,10
             c-2,0.3-4-0.2-5.5-1.4c-19.6-13.3-39.1-26.6-58.8-39.7c-2.6-1.7-2.9-3.6-2.6-6.3c3.8-36.1-1.5-70.8-17.7-103.4
             c-26.4-53.2-68.7-87.2-126.1-102.1c-4.5-1.2-4.9-2.1-2.3-5.8c12.3-18,24.5-36.1,36.7-54.2c1.5-2,2.1-4.5,1.6-6.9
@@ -91,7 +90,7 @@ class DoForm extends React.Component<IProps> {
           <path className="do1" d="M1139.3,326.1l-35.7,9.2l-2.5-9.8l35.7-9.2l-3.5-13.6l9.1-2.3l9.5,37.1l-9.1,2.3L1139.3,326.1z"/>
         </g>
 
-        <g id="SI" onClick={() => this.props.handleClick('SYSTÈME D\'INFORMATION')}>
+        <g id="SI" onClick={() => this.props.handleClick('SI')}>
           <path className="do5" d="M142.8,328.7c-0.3,19.2,1.6,37.6,7.3,55.3c23.7,74.1,73.6,119.3,149.9,134.5c9.6,1.9,14.6,5.1,17.7,14.5
             c6.3,18.9,14.1,37.3,21.4,55.8c1.1,2.6,1.1,5.5,0,8.1c-8.2,20.9-16.3,41.8-24.2,62.8c-1.2,3.3-2.9,4-6.2,3.8
             C160.9,652.4,39.6,547.1,7.5,402c-5-22.8-7.5-46.1-7.5-69.4c0-3.7,0.6-4.5,4.4-3c21.3,8.5,42.8,16.6,64.1,25
@@ -103,7 +102,7 @@ class DoForm extends React.Component<IProps> {
           <path className="do1" d="M145.4,560.1l46.9-53.7l11,9.6l-46.9,53.7L145.4,560.1z"/>
         </g>
         
-        <g id="DATA" onClick={() => this.props.handleClick('DATA')}>
+        <g id="DATA" onClick={() => this.props.handleClick('Data')}>
           <path className="do6" d="M593,127.9c13.5-16.1,27.6-31.6,43.6-45.3C686,40.3,742.8,14.1,807.2,4.7c32.2-4.6,64.9-4.5,97.1,0.2
             c4.7,0.7,6.9,2.1,7.6,7.3c2.9,22.8,6.4,45.5,9.8,68.2c0.3,2.1-0.5,3.5-1.5,5c-12.8,18.9-25.6,37.7-38.1,56.8
             c-2.7,4.1-6,2.7-9.2,2.4c-22.4-2.1-44.8-1-66.3,5.4c-76.7,22.7-123.4,73.4-139.3,152c-2.2,11.3-3.1,22.8-2.7,34.3
@@ -119,7 +118,7 @@ class DoForm extends React.Component<IProps> {
             l5.4,17.6l10.8-8.8L743.5,72.9z"/>
         </g>
         
-        <g id="IA" onClick={() => this.props.handleClick('INTELLIGENCE ARTIFICIELLE')}>
+        <g id="IA" onClick={() => this.props.handleClick('IA')}>
           <path className="do7" d="M592.7,127.7c-15.8,20.7-29.6,42.5-40.5,66.2c-14.8,32.2-24.5,66.5-28.5,101.7c-0.9,7.7-0.5,15.5-2.6,23.1
             c-7.8-84.7-65.6-151.1-148.4-170.5c-5-1.1-10.1-2-15.2-2.6c-2.7-0.1-5-1.9-5.7-4.5c-8.2-21.4-16.5-42.8-24.9-64.1
             c-1-2.5-1-5.2,0.1-7.6c8.3-21.2,16.6-42.4,24.7-63.7c1.1-3,2.3-4.1,5.6-3.8c82.3,7.3,152.8,40.2,211.3,98.5
@@ -129,7 +128,7 @@ class DoForm extends React.Component<IProps> {
             l-16,9.1l11,8.6L517.3,123.2z"/>
         </g>
 
-        <g id="DEV" onClick={() => this.props.handleClick('DEV')}>
+        <g id="DEV" onClick={() => this.props.handleClick('Dev')}>
           <path className="do8" d="M340.3,0c-6.7,17.3-13.1,33.9-19.5,50.4c-2.3,6-4.6,12.1-7.1,18.1c-1,2.4-1,5.2,0.1,7.6
             c8.1,20.4,16,40.9,23.9,61.4c0.6,1.5,1.7,2.9,1.1,5.1c-13.1-0.3-26.2,0.6-39.1,2.8c-42.4,7.7-78.2,27.4-107.3,59.2
             c-27.7,30.3-43.9,66-48.4,106.8c0,2.2-1.5,4.1-3.6,4.7c-21.9,8.4-43.8,16.9-65.6,25.4c-1.7,0.7-3.6,0.7-5.2-0.1
@@ -145,5 +144,10 @@ class DoForm extends React.Component<IProps> {
     );
   }
 }
+
+DoForm.propTypes = {
+  handleClick: PropTypes.func
+}
+
 
 export default DoForm;

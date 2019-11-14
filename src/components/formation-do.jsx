@@ -2,36 +2,23 @@ import React from 'react';
 import '../style/formation.css';
 import MainTitle from './mainTitle';
 import Tuile from './tuile';
+import DoForm from './do-form';
 import Save from './save-button';
-import IgForm from './ig-form';
 import { verifyToken } from '../services/auth.service';
-import { getIgElements, updateElementInIg } from '../services/ig.service';
-import IgElem from '../models/igElem';
+import { getDoElements, updateElementInDo } from '../services/do.service';
 
-interface IState {
-  activeElement: string,
-  connected: boolean,
-  mainText: string,
-  title: string,
-  id: number
-}
+class FormationDo extends React.Component {
 
-interface IProps {
-
-}
-
-class FormationIg extends React.Component<IProps, IState> {
-  constructor(props: IProps) {
+  constructor(props) {
     super(props);
     this.state = {
       activeElement: '',
       connected: false,
       mainText: '',
       title: '',
-      id: -1
+      id: 0
+
     };
-
-
     this.changeActiveElement = this.changeActiveElement.bind(this);
     this.renderText = this.renderText.bind(this);
     this.save = this.save.bind(this);
@@ -43,26 +30,23 @@ class FormationIg extends React.Component<IProps, IState> {
       this.setState({ connected: connectState });
     });
 
-    
-  }
-
-  componentDidMount() {
-    const pageContent = getIgElements();
-    pageContent.then((allElements: IgElem[]) => {
+    const pageContent = getDoElements();
+    pageContent.then((allElements) => {
       if (allElements !== undefined) {
+        console.log(allElements);
         this.setState({
           mainText: allElements[0].content,
           title: allElements[0].title,
-          id: allElements[0].idIg
+          id: allElements[0].idDo
         });
       }
-    });
 
+    });
 
   }
 
 
-  handleChange(event: React.ChangeEvent<HTMLTextAreaElement>) {
+  handleChange(event) {
     this.setState({ mainText: event.target.value });
   }
 
@@ -76,7 +60,12 @@ class FormationIg extends React.Component<IProps, IState> {
   }
 
 
-  changeActiveElement(elem: string) {
+  changeTitle(elem) {
+    this.setState({ title: elem });
+  }
+
+
+  changeActiveElement(elem) {
     this.setState({ activeElement: elem });
   }
 
@@ -87,28 +76,26 @@ class FormationIg extends React.Component<IProps, IState> {
   }
 
   save() {
-    const elementIg = {
-      idIg: this.state.id,
+    console.log('try to save');
+    const elementDo = {
+      idDo: this.state.id,
       title: this.state.title,
       content: this.state.mainText,
       media: ''
     };
-    updateElementInIg(elementIg);
-  }
-
-  changeTitle(elem: string) {
-    this.setState({title:elem});
+    updateElementInDo(elementDo);
+    console.log('content saved');
   }
 
   render() {
     return (
       <div className="root">
         {this.showSavedButton()}
-        <MainTitle name={this.state.title} connected={this.state.connected} action={this.changeTitle} />
+        <MainTitle name={this.state.title} connected={this.state.connected} action={this.changeTitle}/>
         {this.renderText()}
         <div className="informations">
-          <IgForm handleClick={this.changeActiveElement} />
-          <Tuile name={this.state.activeElement} />
+          <DoForm handleClick={this.changeActiveElement} />
+          <Tuile name={this.state.activeElement} formationName="DO"/>
         </div>
       </div>
     );
@@ -116,4 +103,4 @@ class FormationIg extends React.Component<IProps, IState> {
 
 }
 
-export default FormationIg;
+export default FormationDo;

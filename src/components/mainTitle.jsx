@@ -1,19 +1,9 @@
 import React from 'react';
 import '../style/main.css';
+import PropTypes from 'prop-types';
 
-interface IProps {
-  action: any;
-  name: string;
-  connected: boolean;
-}
-
-interface IState {
-  content: string;
-  edit: boolean;
-}
-
-class MainTitle extends React.Component<IProps, IState> {
-  constructor(props: IProps) {
+class MainTitle extends React.Component {
+  constructor(props) {
     super(props);
     this.content = this.content.bind(this);
     this.state = {
@@ -23,10 +13,6 @@ class MainTitle extends React.Component<IProps, IState> {
     this.handleChange = this.handleChange.bind(this);
   }
 
-
-
-
-
   content() {
     if (this.props.connected) {
       return <textarea className="name-mainTitle" value={this.props.name} onChange={(event) => this.handleChange(event)} />;
@@ -35,7 +21,7 @@ class MainTitle extends React.Component<IProps, IState> {
     }
   }
 
-  handleChange(event: React.ChangeEvent<HTMLTextAreaElement>) {
+  handleChange(event) {
     this.setState({ content: event.target.value, edit: true });
     this.props.action(event.target.value);
   }
@@ -56,5 +42,12 @@ class MainTitle extends React.Component<IProps, IState> {
     );
   }
 }
+
+MainTitle.propTypes = {
+  name: PropTypes.string.isRequired,
+  action: PropTypes.func.isRequired,
+  connected: PropTypes.bool.isRequired,
+}
+
 
 export default MainTitle;

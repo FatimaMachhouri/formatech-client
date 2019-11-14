@@ -8,10 +8,10 @@ export default class TestApi extends Component {
   componentDidMount() {
     //Get
     console.log('Get');
-    getHomeElements().then((res: any) => { console.log(res); }).catch((error: any) => { console.log(error); });
-    getIgElements().then((res: any) => { console.log(res); }).catch((error: any) => { console.log(error); });
-    getDoElements().then((res: any) => { console.log(res); }).catch((error: any) => { console.log(error); });
-    getContactElements().then((res: any) => { console.log(res); }).catch((error: any) => { console.log(error); });
+    getHomeElements().then((res) => { console.log(res); }).catch((error) => { console.log(error); });
+    getIgElements().then((res) => { console.log(res); }).catch((error) => { console.log(error); });
+    getDoElements().then((res) => { console.log(res); }).catch((error) => { console.log(error); });
+    getContactElements().then((res) => { console.log(res); }).catch((error) => { console.log(error); });
     //Add
     /* const elemContact = { name: 'toto', email: 't@t.fr', position: 'master' };
      const newIgElement = { title: 'igR', content: 'iggg', media: 'none' };

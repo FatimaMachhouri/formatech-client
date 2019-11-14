@@ -2,35 +2,23 @@ import React from 'react';
 import '../style/formation.css';
 import MainTitle from './mainTitle';
 import Tuile from './tuile';
-import DoForm from './do-form';
 import Save from './save-button';
+import IgForm from './ig-form';
 import { verifyToken } from '../services/auth.service';
-import { getDoElements, updateElementInDo } from '../services/do.service';
-import DoElem from '../models/doElem.model';
+import { getIgElements, updateElementInIg } from '../services/ig.service';
 
-interface IState {
-  activeElement: string,
-  connected: boolean,
-  mainText: string;
-  title: string,
-  id: number
-}
-
-interface IProps {
-}
-
-class FormationDo extends React.Component<IProps, IState> {
-
-  constructor(props: IProps) {
+class FormationIg extends React.Component{
+  constructor(props) {
     super(props);
     this.state = {
       activeElement: '',
       connected: false,
       mainText: '',
       title: '',
-      id: 0
-
+      id: -1
     };
+
+
     this.changeActiveElement = this.changeActiveElement.bind(this);
     this.renderText = this.renderText.bind(this);
     this.save = this.save.bind(this);
@@ -42,23 +30,26 @@ class FormationDo extends React.Component<IProps, IState> {
       this.setState({ connected: connectState });
     });
 
-    const pageContent = getDoElements();
-    pageContent.then((allElements: DoElem[]) => {
+    
+  }
+
+  componentDidMount() {
+    const pageContent = getIgElements();
+    pageContent.then((allElements) => {
       if (allElements !== undefined) {
-        console.log(allElements);
         this.setState({
-          mainText: allElements[0]!.content,
-          title: allElements[0]!.title,
-          id: allElements[0]!.idDo
+          mainText: allElements[0].content,
+          title: allElements[0].title,
+          id: allElements[0].idIg
         });
       }
-
     });
+
 
   }
 
 
-  handleChange(event: React.ChangeEvent<HTMLTextAreaElement>) {
+  handleChange(event) {
     this.setState({ mainText: event.target.value });
   }
 
@@ -72,12 +63,7 @@ class FormationDo extends React.Component<IProps, IState> {
   }
 
 
-  changeTitle(elem: string) {
-    this.setState({ title: elem });
-  }
-
-
-  changeActiveElement(elem: string) {
+  changeActiveElement(elem) {
     this.setState({ activeElement: elem });
   }
 
@@ -88,26 +74,28 @@ class FormationDo extends React.Component<IProps, IState> {
   }
 
   save() {
-    console.log('try to save');
-    const elementDo = {
-      idDo: this.state.id,
+    const elementIg = {
+      idIg: this.state.id,
       title: this.state.title,
       content: this.state.mainText,
       media: ''
     };
-    updateElementInDo(elementDo);
-    console.log('content saved');
+    updateElementInIg(elementIg);
+  }
+
+  changeTitle(elem) {
+    this.setState({title:elem});
   }
 
   render() {
     return (
       <div className="root">
         {this.showSavedButton()}
-        <MainTitle name={this.state.title} connected={this.state.connected} action={this.changeTitle}/>
+        <MainTitle name={this.state.title} connected={this.state.connected} action={this.changeTitle} />
         {this.renderText()}
         <div className="informations">
-          <DoForm handleClick={this.changeActiveElement} />
-          <Tuile name={this.state.activeElement} />
+          <IgForm handleClick={this.changeActiveElement} />
+          <Tuile name={this.state.activeElement} formationName="IG"/>
         </div>
       </div>
     );
@@ -115,4 +103,4 @@ class FormationDo extends React.Component<IProps, IState> {
 
 }
 
-export default FormationDo;
+export default FormationIg;
