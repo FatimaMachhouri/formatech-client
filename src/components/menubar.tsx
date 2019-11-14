@@ -56,14 +56,14 @@ class MenuBar extends React.Component<IProps, IState> {
       <div className='menuBarContent'>
         <div className={this.state.classNameBurger} id='burger'>
           <img src={cross} className='cross' onClick={this.closeBurger} alt='close menu.' />
-          <Link className='burgerElement' to="/" style={{ textDecoration: 'none', color: 'black' }}> ACCUEIL </Link>
-          <Link className='burgerElement' to="/candidater" style={{ textDecoration: 'none', color: 'black' }}> CANDIDATER </Link>
+          <Link className='burgerElement' to="/" onClick={this.closeBurger} style={{ textDecoration: 'none', color: 'black' }}> ACCUEIL </Link>
+          <Link className='burgerElement' to="/candidater" onClick={this.closeBurger} style={{ textDecoration: 'none', color: 'black' }}> CANDIDATER </Link>
           <p className='burgerElement' onClick={this.showSubMenuMobile}> FORMATIONS </p>
-          <div className={this.state.classNameSubMenu}>
-            <p className='subBurger'> <Link to="/formation/ig" style={{ textDecoration: 'none', color: 'black' }}> IG </Link> </p>
-            <p className='subBurger'> <Link to="/formation/do" style={{ textDecoration: 'none', color: 'black' }}> DO </Link> </p>
+          <div className={this.state.classNameSubMenu} onClick={this.closeBurger}>
+            <p className='subBurger' onClick={this.showSubMenuMobile}> <Link to="/formation/ig" style={{ textDecoration: 'none', color: 'black' }}> IG </Link> </p>
+            <p className='subBurger' onClick={this.showSubMenuMobile}> <Link to="/formation/do" style={{ textDecoration: 'none', color: 'black' }}> DO </Link> </p>
           </div>
-          <Link className='burgerElement' to="/contact" style={{ textDecoration: 'none', color: 'black' }}> CONTACT </Link>
+          <Link className='burgerElement' to="/contact" onClick={this.closeBurger} style={{ textDecoration: 'none', color: 'black' }}> CONTACT </Link>
         </div>
 
         <div className='MenuBar'>
@@ -72,9 +72,9 @@ class MenuBar extends React.Component<IProps, IState> {
             <Link className='menuElement' to="/" style={{ textDecoration: 'none', color: 'black' }}> ACCUEIL </Link>
             <Link className='menuElement' to="/candidater" style={{ textDecoration: 'none', color: 'black' }}> CANDIDATER </Link>
             <p className='menuElement' onClick={this.showSubMenu}> FORMATIONS </p>
-            <div className={this.state.classNameSubMenuFloat}>
-              <p className='subBurger'> <Link to="/formation/ig" style={{ textDecoration: 'none', color: 'black' }}> IG </Link> </p>
-              <p className='subBurger'> <Link to="/formation/do" style={{ textDecoration: 'none', color: 'black' }}> DO </Link> </p>
+            <div className={this.state.classNameSubMenuFloat} onMouseLeave={this.showSubMenu}>
+              <p className='subBurger' onClick={this.showSubMenu}> <Link to="/formation/ig" style={{ textDecoration: 'none', color: 'black' }}> IG </Link> </p>
+              <p className='subBurger' onClick={this.showSubMenu}> <Link to="/formation/do" style={{ textDecoration: 'none', color: 'black' }}> DO </Link> </p>
             </div>
             <Link className='menuElement' to="/contact" style={{ textDecoration: 'none', color: 'black' }}> CONTACT </Link>
             <img className="burgerIcon" src={burger} onClick={this.openBurger} alt="burger menu" />
