@@ -95,7 +95,7 @@ class FormationIg extends React.Component{
         {this.renderText()}
         <div className="informations">
           <IgForm handleClick={this.changeActiveElement} />
-          <Tuile name={this.state.activeElement} />
+          <Tuile name={this.state.activeElement} formationName="IG"/>
         </div>
       </div>
     );

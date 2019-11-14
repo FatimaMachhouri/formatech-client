@@ -95,7 +95,7 @@ class FormationDo extends React.Component {
         {this.renderText()}
         <div className="informations">
           <DoForm handleClick={this.changeActiveElement} />
-          <Tuile name={this.state.activeElement} />
+          <Tuile name={this.state.activeElement} formationName="DO"/>
         </div>
       </div>
     );

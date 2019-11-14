@@ -9,7 +9,7 @@ class IgForm extends React.Component {
   render() {
     return (
       <svg viewBox="0 0 918 931.9" >
-        <g id="SI" onClick={() => this.props.handleClick('SYSTÈMES D\'INFORMATION')}>
+        <g id="SI" onClick={() => this.props.handleClick('Systèmes d information')}>
           <path className="st0" d="M428.5,801.5c0,16.8-0.1,33.7,0.1,50.5c0.1,4.1-1,5.3-5.2,5.2c-101.5-2.4-198.4-42.8-271.7-113
             c-2.2-2.1-2.7-3.2-0.3-5.7c24.3-24.7,48.5-49.4,72.5-74.3c2.1-2.2,3.2-1.7,5.1,0.1c42.9,40.7,93.5,66.5,151.7,77.1
             c14.6,2.8,29.3,4.3,44.1,4.4c3.7,0,4.8,0.8,4.7,4.7"/>
@@ -137,7 +137,7 @@ class IgForm extends React.Component {
               c0,0.1,0.1,0.1,0,0.2c0,0.1-0.1,0.2-0.2,0.4c-0.1,0.1-0.2,0.4-0.4,0.8L411.7,845.3z"/>
           </g>
         </g>
-        <g id="GESTION_ET_COMM" onClick={() => this.props.handleClick('GESTION ET COMMUNICATION')}>
+        <g id="GESTION_ET_COMM" onClick={() => this.props.handleClick('Gestion et communication')}>
           <path className="st3" d="M738.1,441.2c-3.2,0-4.5-0.4-4.7-4.2c-2.3-75.2-29.4-140.2-80.5-195.3c-2.7-2.9-3.2-4.3-0.1-7.3
             c24.3-23.3,48.4-46.8,72.3-70.4c2.8-2.7,4.3-3.4,7.4-0.1C788,222.8,823.2,292,838.2,371.4c3.9,21,6.1,42.2,6.5,63.6
             c0.1,3.6-0.4,5.2-4.7,5.1c-17-0.3-34-0.1-51-0.1"/>
@@ -296,7 +296,7 @@ class IgForm extends React.Component {
             <circle className="st4" cx="435.7" cy="613.9" r="11.2"/>
           </g>
         </g>
-        <g id="LANGUEETCOM" onClick={() => this.props.handleClick('LANGUES ET COMMUNICATION')}>
+        <g id="LANGUEETCOM" onClick={() => this.props.handleClick('Langues et communication')}>
           <g id="Calque_3">
             <path className="st5" d="M790,451c17,0,34,0.2,51-0.1c4.3-0.1,4.8,1.5,4.7,5.2c-2.4,101.1-42.4,197.7-112.2,270.9
               c-2.6,2.8-4,3.3-7,0.3c-24.1-23.7-48.3-47.3-72.7-70.8c-3.1-3-2.8-4.4,0-7.3c42.1-44.9,67.9-97.7,77.5-158.5
@@ -431,7 +431,7 @@ class IgForm extends React.Component {
               c0.1,0,0.1-0.1,0.2,0c0.1,0,0.2,0.1,0.3,0.2s0.4,0.2,0.8,0.4L831.7,470.8z"/>
           </g>
         </g>
-        <g id="DATA_SCIENCE" onClick={() => this.props.handleClick('DATA SCIENCE')}>
+        <g id="DATA_SCIENCE" onClick={() => this.props.handleClick('Data science')}>
           <path className="st6" d="M81.6,441c-17.2,0-34.3,0-51.5,0c-2.5,0-4.3,0.1-4.2-3.5c1.3-48.7,10.5-95.8,28.4-141.1
             C73.6,247.6,102,203,138.2,165c2.5-2.6,4-3.4,7-0.4c24.1,23.7,48.3,47.3,72.6,70.8c3.1,3,2.7,4.5,0,7.4
             c-41.3,44.1-66.9,96-76.9,155.6c-2.3,12.9-3.5,26.1-3.4,39.2c0.1,3.8-1.2,4.7-4.9,4.7"/>
@@ -500,7 +500,7 @@ class IgForm extends React.Component {
               L147.9,205.4z"/>
           </g>
         </g>
-        <g id="TRAITDONNEE" onClick={() => this.props.handleClick('TRAITEMENT DE DONNÉES')}>
+        <g id="TRAITDONNEE" onClick={() => this.props.handleClick('Traitement de données')}>
           <path className="st7" d="M441.4,39.6c0-4.1,1.4-4.9,5.1-4.8c100.8,2.4,197.1,42.1,270.2,111.6c3.4,3.2,3.8,4.9,0.3,8.5
             c-23.6,23.8-47,47.7-70.2,71.8c-2.5,2.6-3.9,3.2-6.9,0.3c-42.6-40.3-92.8-65.8-150.5-76.4c-14.9-2.8-29.9-4.6-45.1-4.5
             c-3.1,0-4.2-0.6-4.1-4c0.2-17.2,0.1-34.3,0.1-51.5"/>
@@ -599,7 +599,7 @@ class IgForm extends React.Component {
               c1.2,0.9,2.2,2,2.9,3.3s1.1,2.7,1.1,4.2L648.3,183.8z"/>
           </g>
         </g>
-        <g id="GDP" onClick={() => this.props.handleClick('GESTION DE PROJET')}>
+        <g id="GDP" onClick={() => this.props.handleClick('Gestion de projet')}>
           <path className="st8" d="M430.6,91.2c0,17.3-0.1,34.7,0.1,52c0,3.9-2.1,3.7-4.8,3.8c-43.3,0.9-84.3,11.3-123,30.4
             c-26.2,12.8-50.3,29.7-71.4,49.9c-3.2,3.1-4.9,3.1-8.1-0.2c-23.1-24-46.4-47.9-69.8-71.6c-3.4-3.4-3-5.1,0.3-8.2
             C211.9,93,279.7,57.9,357.8,42.8c21.7-4.2,43.8-6.6,66-7.1c4.4-0.1,6,0.7,6,5.6"/>
@@ -697,7 +697,7 @@ class IgForm extends React.Component {
             <path className="st2" d="M369,100.9l18-3.8l0.8,3.8l-6.9,1.5l4.4,20.6l-4.5,1l-4.4-20.6l-6.6,1.4L369,100.9z"/>
           </g>
         </g>
-        <g id="TECH_Ingé" onClick={() => this.props.handleClick('TECHNIQUE DE L\'INGÉNIEUR')}>
+        <g id="TECH_Ingé" onClick={() => this.props.handleClick('Techniques de l ingénieur')}>
           <path className="st9" d="M131.4,450.6c4-0.1,5,1.2,5.1,5c1.6,58.3,19.1,111.4,52,159.5c8.6,12.7,18.3,24.6,29,35.6
             c2.4,2.4,2.5,3.8,0,6.3c-24.5,23.7-49,47.6-73.4,71.5c-2.9,2.9-4.3,2.1-6.6-0.4C67.4,654.6,27.3,557.7,25.1,456.2
             c-0.1-3.7,1-4.4,4.4-4.3c17,0.2,34,0.1,51,0.1"/>
@@ -819,7 +819,7 @@ class IgForm extends React.Component {
               c0.4,0.3,0.8,0.5,1.3,0.6c0.4,0.1,0.8,0.1,1.3,0s0.8-0.3,1.2-0.6c1-0.7,1.5-1.4,1.6-2.3c0.1-0.8-0.2-1.8-1-2.9L150.6,696.5z"/>
           </g>
         </g>
-        <g id="LOGIQUE" onClick={() => this.props.handleClick('LOGIQUE ET ALGORITHMIE')}>
+        <g id="LOGIQUE" onClick={() => this.props.handleClick('Logique et algorithmie')}>
           <path className="st10" d="M440.9,748.8c0-3.1,0.8-3.8,3.9-3.9c75.7-2.3,141.2-29.4,196.4-81.3c2.7-2.5,3.9-2.1,6.2,0.3
           c23.7,24.4,47.4,48.7,71.2,73c2.6,2.6,3.1,4.1,0.1,6.9C659,800,589,835.7,508.2,850.1c-20.2,3.6-40.6,5.7-61,6.1
           c-3.6,0.1-4.9-0.5-4.9-4.5c0.2-17.2,0.1-34.3,0.1-51.5"/>
