@@ -66,3 +66,9 @@
     font-size:80%;
     color:rgb(6, 30, 110);
 }
+
+.delete-button{
+    color:red;
+    border-color:red;
+    margin-bottom:35px;
+}

@@ -47,7 +47,7 @@ class Contact extends React.Component {
 
   showDeleteButton(id) {
     if (this.state.connected) {
-      return <button onClick={() => this.deleteElem(id)}>Supprimer</button>;
+      return <button className="delete-button" onClick={() => this.deleteElem(id)}>Supprimer</button>;
     }
   }
 
