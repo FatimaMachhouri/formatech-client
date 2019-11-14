@@ -24,14 +24,28 @@ class Tuile extends React.Component {
 
   async setContentTuile(elem) {
     this.setState({currentPage: elem})
-    let semesters = [];
-    if (elem === 'IG3') { semesters = (await axios.get(config.API_URL + '/sagesse/step/1/modules')).data.periods; }
-    if (elem === 'IG4') { semesters = (await axios.get(config.API_URL + '/sagesse/step/2/modules')).data.periods; }
-    if (elem === 'IG5') { semesters = (await axios.get(config.API_URL + '/sagesse/step/3/modules')).data.periods; }
 
-    if (elem === 'DO3') { semesters = (await axios.get(config.API_URL + '/sagesse/step/1093/modules')).data.periods; }
-    if (elem === 'DO4') { semesters = (await axios.get(config.API_URL + '/sagesse/step/1143/modules')).data.periods; }
-    if (elem === 'DO5') { semesters = (await axios.get(config.API_URL + '/sagesse/step/1190/modules')).data.periods; }
+    let semesters;
+    switch(elem) {
+      case 'IG3': 
+        semesters = (await axios.get(config.API_URL + '/sagesse/step/1/modules')).data.periods;
+        break;
+      case 'IG4': 
+        semesters = (await axios.get(config.API_URL + '/sagesse/step/2/modules')).data.periods;
+        break;
+      case 'IG5': 
+        semesters = (await axios.get(config.API_URL + '/sagesse/step/3/modules')).data.periods;
+        break;
+      case 'DO3': 
+        semesters = (await axios.get(config.API_URL + '/sagesse/step/1093/modules')).data.periods;
+        break;
+      case 'DO4': 
+        semesters = (await axios.get(config.API_URL + '/sagesse/step/1143/modules')).data.periods;
+        break;
+      case 'DO5': 
+        semesters = (await axios.get(config.API_URL + '/sagesse/step/1190/modules')).data.periods;
+        break;
+    }
 
     let result = '';
     for (let semester of semesters) {
