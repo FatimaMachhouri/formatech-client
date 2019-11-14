@@ -13,7 +13,6 @@ class MainTitle extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-
   content() {
     if (this.props.connected) {
       return <textarea className="name-mainTitle" value={this.props.name} onChange={(event) => this.handleChange(event)} />;

@@ -34,6 +34,7 @@ const verifyToken = async () => {
         if(res.status === 200){
           return true;
         }else{
+          logout();
           return false;
         }
     //return res.data;

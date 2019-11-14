@@ -36,7 +36,6 @@ class Login extends React.Component {
     login(user).then(res => {
       if(res !== undefined){
         this.props.history.push('/');
-        alert('Connexion réussie');
       }else{
         console.log('ici')
         this.setState({
