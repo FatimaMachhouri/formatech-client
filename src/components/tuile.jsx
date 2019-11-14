@@ -11,6 +11,7 @@ class Tuile extends React.Component {
     super(props);
     this.state = {
       visibility: 'container',
+      currentPage: '',
       content: '',
     };
     this.close = this.close.bind(this);
@@ -22,6 +23,7 @@ class Tuile extends React.Component {
   }
 
   async setContentTuile(elem) {
+    this.setState({currentPage: elem})
     let semesters = [];
     if (elem === 'IG3') { semesters = (await axios.get(config.API_URL + '/sagesse/step/1/modules')).data.periods; }
     if (elem === 'IG4') { semesters = (await axios.get(config.API_URL + '/sagesse/step/2/modules')).data.periods; }
@@ -72,7 +74,7 @@ class Tuile extends React.Component {
 
   UNSAFE_componentWillUpdate(nextProps) {
     if (nextProps.name != this.props.name) {
-      this.setContentTuile(this.props.formationName + "3");
+      this.setContentTuile(this.state.currentPage);
     }
   }
 
