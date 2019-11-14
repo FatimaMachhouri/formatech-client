@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tuile component matches the snapshot 1`] = `
+<Tuile
+  formationName="IG"
+  name=""
+/>
+`;
+
+exports[`TuileNav component matches the snapshot 1`] = `
+<TuileNavigation
+  formation="IG"
+/>
+`;
