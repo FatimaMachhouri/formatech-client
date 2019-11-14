@@ -49,7 +49,6 @@ class Tuile extends React.Component {
       default:
         console.log('ERREUR, IMPOSSIBLE DE RECUPERER L\'ANNEE ' + elem);
     }
-    console.log(semesters)
 
     let result = '';
     for (let semester of semesters) {

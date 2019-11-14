@@ -57,7 +57,6 @@ class MenuBar extends React.Component {
   }
 
   render() {
-    console.log(this.state.connected)
     return (
       <div className='menuBarContent'>
         <div className={this.state.classNameBurger} id='burger'>
