@@ -18,7 +18,7 @@ class TuileNavigation extends React.Component {
 
 TuileNavigation.propTypes = {
   formation: PropTypes.string.isRequired,
-  handleClick: PropTypes.any.isRequired,
+  handleClick: PropTypes.any,
 }
 
 export default TuileNavigation;
