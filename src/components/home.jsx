@@ -7,14 +7,16 @@ import { verifyToken } from '../services/auth.service';
 import { getHomeElements, updateElementInHome } from '../services/home.service';
 
 
-class Root extends React.Component {
+class Root extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
       connected: false,
       mainText: '',
       title: '',
-      idHome: 0
+      idHome: 0,
+      previewOne: {},
+      previewTwo: {}
     };
 
     const issues = verifyToken();
@@ -25,20 +27,60 @@ class Root extends React.Component {
     const pageContent = getHomeElements();
     pageContent.then((allElements) => {
       if (allElements !== undefined) {
+        console.log(allElements);
         this.setState({
           mainText: allElements[0].content,
           title: allElements[0].title,
-          idHome: allElements[0].idHome
+          idHome: allElements[0].idHome,
         });
+        const elem1 = {};
+        elem1.content = allElements[1].content;
+        elem1.idHome = allElements[1].idHome;
+        elem1.media = allElements[1].media;
+        elem1.title = allElements[1].title;
+
+        const elem2 = {};
+        elem2.content = allElements[2].content;
+        elem2.idHome = allElements[2].idHome;
+        elem2.media = allElements[2].media;
+        elem2.title = allElements[2].title;
+
+        this.setState({
+          previewOne: elem1,
+          previewTwo: elem2
+        });
+
       }
 
     });
 
+    // Function for the page
     this.renderText = this.renderText.bind(this);
     this.save = this.save.bind(this);
     this.showSavedButton = this.showSavedButton.bind(this);
     this.changeTitle = this.changeTitle.bind(this);
+
+    // Functions to handle changes on Preview Components: 
+    this.changePreviewOne = this.changePreviewOne.bind(this);
+    this.changePreviewTwo = this.changePreviewTwo.bind(this);
+
+
   }
+
+  changePreviewOne(elem) {
+    this.setState({
+      previewOne: elem
+    });
+  }
+
+  changePreviewTwo(elem) {
+    this.setState({
+      previewOne: elem
+    });
+  }
+
+
+
 
   renderText() {
     if (this.state.connected) {
@@ -79,11 +121,11 @@ class Root extends React.Component {
     return (
       <div className="root">
         {this.showSavedButton()}
-        <MainTitle name={this.state.title} connected={this.state.connected} action={this.changeTitle} />
+        <MainTitle name={this.state.title} connected={this.state.connected} action={this.changeTitle}/>
         {this.renderText()}
         <div className="pres-formation">
-          <Preview name="Développement Opérationnel" className="do" />
-          <Preview name="Informatique et Gestion" className="ig" />
+          <Preview elem={this.state.previewOne} connected={this.state.connected}  className="do" />
+          <Preview elem={this.state.previewTwo} connected={this.state.connected}  className="ig" />
         </div>
       </div>
     );
