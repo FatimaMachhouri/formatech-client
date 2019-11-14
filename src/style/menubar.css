@@ -140,3 +140,13 @@
         text-align: center;
     }
 }
+
+.offButton{
+    max-width:30px;
+    top: 10;
+    margin:auto;
+  }
+
+  .topnav-right {
+    float: right;
+  }

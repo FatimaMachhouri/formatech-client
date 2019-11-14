@@ -1,25 +1,32 @@
 import React from 'react';
 import logo from '../img/polytechLogo.svg';
-
+import offButton from '../img/power-button-off.svg';
 import burger from '../img/burger.svg';
 import cross from '../img/cross.svg';
 import '../style/menubar.css';
 import { Link } from 'react-router-dom';
+import { verifyToken, logout } from '../services/auth.service';
 
-class MenuBar extends React.Component{
+class MenuBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       classNameBurger: 'hidden',
       classNameSubMenu: 'hidden',
-      classNameSubMenuFloat: 'hidden'
+      classNameSubMenuFloat: 'hidden',
+      connected: false
     };
     this.closeBurger = this.closeBurger.bind(this);
     this.openBurger = this.openBurger.bind(this);
     this.showSubMenuMobile = this.showSubMenuMobile.bind(this);
     this.showSubMenu = this.showSubMenu.bind(this);
-  }
+    this.logout = this.logout.bind(this);
 
+    const issues = verifyToken();
+    issues.then((connectState) => {
+      this.setState({ connected: connectState });
+    });
+  }
 
   closeBurger() {
     this.setState({ classNameBurger: 'hidden' });
@@ -44,7 +51,13 @@ class MenuBar extends React.Component{
     }
   }
 
+  logout() {
+    logout();
+    window.location.reload();
+  }
+
   render() {
+    console.log(this.state.connected)
     return (
       <div className='menuBarContent'>
         <div className={this.state.classNameBurger} id='burger'>
@@ -57,6 +70,10 @@ class MenuBar extends React.Component{
             <p className='subBurger' onClick={this.showSubMenuMobile}> <Link to="/formation/do" style={{ textDecoration: 'none', color: 'black' }}> DO </Link> </p>
           </div>
           <Link className='burgerElement' to="/contact" onClick={this.closeBurger} style={{ textDecoration: 'none', color: 'black' }}> CONTACT </Link>
+
+          {this.state.connected ? (<div className="burgerElement">
+            <img src={offButton} className="menuElement topnav-right offButton" alt="offButton-logo" onClick={this.logout} />
+          </div>) : null}
         </div>
 
         <div className='MenuBar'>
@@ -71,12 +88,14 @@ class MenuBar extends React.Component{
             </div>
             <Link className='menuElement' to="/contact" style={{ textDecoration: 'none', color: 'black' }}> CONTACT </Link>
             <img className="burgerIcon" src={burger} onClick={this.openBurger} alt="burger menu" />
+            {this.state.connected ? (
+              <img src={offButton} className="menuElement topnav-right offButton" alt="offButton-logo" onClick={this.logout} />
+            ) : null}
           </header>
         </div>
       </div>
     );
   }
-
 }
 
 export default MenuBar;

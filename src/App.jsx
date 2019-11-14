@@ -11,29 +11,29 @@ import { BrowserRouter } from 'react-router-dom';
 function App() {
   return (
     <BrowserRouter>
-      
-          <MenuBar />
-          {/* A <Switch> looks through its children <Route>s and
+
+      <MenuBar />
+      {/* A <Switch> looks through its children <Route>s and
         renders the first one that matches the current URL. */}
-<Switch>
-          <Route exact path="/candidater">
-            null
-      </Route>
-          <Route exact path="/formation/ig">
-            <FormationIg />
-          </Route>
-          <Route exact path="/formation/do">
-            <FormationDo />
-          </Route>
-          <Route exact path="/contact">
-            <Contact />
-          </Route>
-          <Route exact path="/login">
-            <Login />
-          </Route>
-          <Route exact path="/">
-            <Root />
-          </Route>
+      <Switch>
+        <Route exact path="/candidater">
+          null
+        </Route>
+        <Route exact path="/formation/ig">
+          <FormationIg />
+        </Route>
+        <Route exact path="/formation/do">
+          <FormationDo />
+        </Route>
+        <Route exact path="/contact">
+          <Contact />
+        </Route>
+        <Route exact path="/login">
+          <Login />
+        </Route>
+        <Route exact path="/">
+          <Root />
+        </Route>
       </Switch>
     </BrowserRouter>
   );

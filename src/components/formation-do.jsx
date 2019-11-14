@@ -42,9 +42,7 @@ class FormationDo extends React.Component {
       }
 
     });
-
   }
-
 
   handleChange(event) {
     this.setState({ mainText: event.target.value });
@@ -58,7 +56,6 @@ class FormationDo extends React.Component {
       return <span className='mainText'>{this.state.mainText}</span>;
     }
   }
-
 
   changeTitle(elem) {
     this.setState({ title: elem });
