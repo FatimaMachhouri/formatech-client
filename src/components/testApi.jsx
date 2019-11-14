@@ -1,17 +1,17 @@
 import { Component } from 'react';
-import { getHomeElements } from '../services/home.service';
-import { getIgElements } from '../services/ig.service';
-import { getDoElements } from '../services/do.service';
-import { getContactElements } from '../services/contact.service';
+//import { getHomeElements } from '../services/home.service';
+//import { getIgElements } from '../services/ig.service';
+//import { getDoElements } from '../services/do.service';
+//import { getContactElements } from '../services/contact.service';
 
 export default class TestApi extends Component {
   componentDidMount() {
     //Get
-    console.log('Get');
-    getHomeElements().then((res) => { console.log(res); }).catch((error) => { console.log(error); });
-    getIgElements().then((res) => { console.log(res); }).catch((error) => { console.log(error); });
-    getDoElements().then((res) => { console.log(res); }).catch((error) => { console.log(error); });
-    getContactElements().then((res) => { console.log(res); }).catch((error) => { console.log(error); });
+   // console.log('Get');
+   // getHomeElements().then((res) => { console.log(res); }).catch((error) => { console.log(error); });
+//getIgElements().then((res) => { console.log(res); }).catch((error) => { console.log(error); });
+   // getDoElements().then((res) => { console.log(res); }).catch((error) => { console.log(error); });
+   // getContactElements().then((res) => { console.log(res); }).catch((error) => { console.log(error); });
     //Add
     /* const elemContact = { name: 'toto', email: 't@t.fr', position: 'master' };
      const newIgElement = { title: 'igR', content: 'iggg', media: 'none' };

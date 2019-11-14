@@ -10,7 +10,6 @@ import PropTypes from 'prop-types';
 class Preview extends React.Component {
   constructor(props) {
     super(props);
-    console.log('j\'ai ça:', this.props.className, this.props.elem);
     this.state = {
       title: this.props.elem.title,
       className: this.props.className,
@@ -41,7 +40,6 @@ class Preview extends React.Component {
   }
 
   save() {
-    console.log('try to save');
     const elemEdited = {};
 
     if (this.state.editedTitle) {
@@ -56,11 +54,8 @@ class Preview extends React.Component {
       elemEdited.content = this.props.elem.content;
     }
     elemEdited.idHome = this.props.elem.idHome;
-    console.log(this.props.elem.idHome);
     elemEdited.media = 'link of a video';
     updateElementInHome(elemEdited);
-
-    console.log('content saved');
   }
 
   displayTitle() {
@@ -76,7 +71,6 @@ class Preview extends React.Component {
   }
 
   displayText() {
-    console.log(this.state.editedText);
     if (this.state.editedText) {
       return <textarea className="content" value={this.state.mainText} onChange={(event) => this.handleChangeMainText(event)} />;
     } else {

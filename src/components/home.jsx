@@ -29,7 +29,6 @@ class Root extends React.Component {
     const pageContent = getHomeElements();
     pageContent.then((allElements) => {
       if (allElements !== undefined) {
-        console.log(allElements);
         this.setState({
           mainText: allElements[0].content,
           title: allElements[0].title,
@@ -124,7 +123,6 @@ class Root extends React.Component {
   }
 
   save() {
-    console.log('try to save');
     const elementHome = {
       idHome: this.state.idHome,
       title: this.state.title,
@@ -132,7 +130,6 @@ class Root extends React.Component {
       media: this.state.media
     };
     updateElementInHome(elementHome);
-    console.log('content saved');
   }
 
   render() {

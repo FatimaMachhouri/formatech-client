@@ -21,7 +21,6 @@ class Contact extends React.Component {
     const pageContent = getContactElements();
     pageContent.then((allElements) => {
       if (allElements !== undefined) {
-        console.log(allElements);
         this.setState({
           contacts: allElements
         });
@@ -36,7 +35,6 @@ class Contact extends React.Component {
       const pageContent = getContactElements();
       pageContent.then((allElements) => {
         if (allElements !== undefined) {
-          console.log(allElements);
           this.setState({
             contacts: allElements
           });
@@ -52,7 +50,6 @@ class Contact extends React.Component {
   }
 
   render() {
-    console.log('render' +this.state.contacts )
     return (
       <div className="container-contacts">
         {
