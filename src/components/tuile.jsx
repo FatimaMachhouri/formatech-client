@@ -45,13 +45,15 @@ class Tuile extends React.Component {
       case 'DO5': 
         semesters = (await axios.get(config.API_URL + '/sagesse/step/1190/modules')).data.periods;
         break;
+      default:
+        console.log('ERREUR, IMPOSSIBLE DE RECUPERER L\'ANNEE ' + elem);
     }
 
     let result = '';
     for (let semester of semesters) {
       let tmpResult = "";
       for (let module of semester.modules) {
-        if (this.props.name === module.category || this.props.name == '') {
+        if (this.props.name === module.category || this.props.name === '') {
           let subjects = (await axios.get(config.API_URL + '/sagesse/module/' + module.id)).data.subjects.map((elm => elm.title));
           tmpResult = '_' + module.title + '~' + subjects + tmpResult;
         }
@@ -87,7 +89,7 @@ class Tuile extends React.Component {
   }
 
   UNSAFE_componentWillUpdate(nextProps) {
-    if (nextProps.name != this.props.name) {
+    if (nextProps.name !== this.props.name) {
       this.setContentTuile(this.state.currentPage);
     }
   }
