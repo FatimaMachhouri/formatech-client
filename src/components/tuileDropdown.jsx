@@ -27,7 +27,7 @@ class TuileDropdown extends Component {
   render() {
     return (
       <div>
-        <div onClick={this.showMenu}> {this.props.module.split('~')[0]} <img id={this.state.showMenu ? 'icon1' : 'icon2'} src={this.getSubjects(this.props.module.split('~')[1]).length == 0 ? '' : icon}/> </div>      
+        <div onClick={this.showMenu}> {this.props.module.split('~')[0]} <img id={this.state.showMenu ? 'icon1' : 'icon2'} src={this.getSubjects(this.props.module.split('~')[1]).length === 0 ? '' : icon} alt=''/> </div>      
         {
           this.state.showMenu
             ? (
