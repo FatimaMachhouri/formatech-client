@@ -12,12 +12,12 @@ class Login extends React.Component {
     super(props);
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      error: false
     };
     this.changeEmail = this.changeEmail.bind(this);
     this.changePass = this.changePass.bind(this);
     this.connect = this.connect.bind(this);
-
   }
 
   changeEmail(event) {
@@ -33,20 +33,40 @@ class Login extends React.Component {
     const user = {};
     user.login = this.state.email;
     user.password = this.state.password;
-    const res = login(user).then(() => {
-      this.props.history.push('/');
+    login(user).then(res => {
+      if(res !== undefined){
+        this.props.history.push('/');
+        alert('Connexion réussie');
+      }else{
+        console.log('ici')
+        this.setState({
+          email: '',
+          password: '',
+          error: true
+        });
+      }
+    }).catch(err => {
+      if(err){
+        this.setState({
+          email: '',
+          password: '',
+          error: true
+        });
+      }
     });
-    console.log(res);
   }
 
+
   render() {
+
     return (
       <div className="container-login">
         <div className="login-component">
           <img src={lock} className="lock" alt="lock-logo" />
+          {this.state.error?  <div className="">Email et/ou mot de passe incorrect(s)!</div> : null}
           <form>
-            <input type="text" placeholder="alice@mail.com" onChange={(event) => this.changeEmail(event)} />
-            <input type="password" placeholder="mon-mot-de-passe" onChange={(event) => this.changePass(event)} />
+            <input type="text" placeholder="alice@mail.com" value={this.state.email} onChange={(event) => this.changeEmail(event)} />
+            <input type="password" placeholder="mon-mot-de-passe" value={this.state.password} onChange={(event) => this.changePass(event)} />
             <button onClick={this.connect}>Se connecter</button>
           </form>
         </div>
