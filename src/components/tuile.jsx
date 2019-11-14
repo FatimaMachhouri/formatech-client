@@ -35,8 +35,10 @@ class Tuile extends React.Component {
     for (let semester of semesters) {
       let tmpResult = "";
       for (let module of semester.modules) {
-        let subjects = (await axios.get(config.API_URL + '/sagesse/module/' + module.id)).data.subjects.map((elm => elm.title));
-        tmpResult = '_' + module.title + '~' + subjects + tmpResult;
+        if (this.props.name === module.category || this.props.name == '') {
+          let subjects = (await axios.get(config.API_URL + '/sagesse/module/' + module.id)).data.subjects.map((elm => elm.title));
+          tmpResult = '_' + module.title + '~' + subjects + tmpResult;
+        }
       }
 
       result += '//' + semester.title + ':' + tmpResult;
@@ -66,6 +68,12 @@ class Tuile extends React.Component {
   getSubjects(elem) {
     if (elem === undefined || elem === '') return []
     else { return elem.split(',') }
+  }
+
+  UNSAFE_componentWillUpdate(nextProps) {
+    if (nextProps.name != this.props.name) {
+      this.setContentTuile(this.props.formationName + "3");
+    }
   }
 
   render() {
