@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import '../style/tuile.css';
+import '../style/tuileDropdown.css';
+import icon from '../img/dropDownIcon.png';
 
 class TuileDropdown extends Component {
   constructor(props) {
@@ -26,7 +27,7 @@ class TuileDropdown extends Component {
   render() {
     return (
       <div>
-        <div onClick={this.showMenu}> {this.props.module.split('~')[0]} </div>      
+        <div onClick={this.showMenu}> {this.props.module.split('~')[0]} <img src={icon}/></div>      
         {
           this.state.showMenu
             ? (
