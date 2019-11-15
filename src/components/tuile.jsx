@@ -11,19 +11,19 @@ class Tuile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      visibility: 'hidden',
+      visibility: 'container',
       currentPage: '',
       content: '',
     };
     this.close = this.close.bind(this);
     this.setContentTuile = this.setContentTuile.bind(this);
-    if (this.props.name !== '') {
-      this.setState({ visibility: 'container'})
-    }
+
     if (this.props.formationName === 'IG') {
-      this.setState({currentPage:'IG3'})
+      this.setState({ currentPage:'IG3' });
+      this.setContentTuile('IG3');
     } else {
-      this.setState({currentPage:'DO3'})
+      this.setState({ currentPage:'DO3' });
+      this.setContentTuile('DO3');
     }
   }
 
@@ -32,7 +32,7 @@ class Tuile extends React.Component {
   }
 
   async setContentTuile(elem) {
-    this.setState({currentPage: elem})
+    this.setState({ currentPage: elem })
 
     let semesters=[];
     switch(elem) {
