@@ -33,7 +33,6 @@ class FormationDo extends React.Component {
     const pageContent = getDoElements();
     pageContent.then((allElements) => {
       if (allElements !== undefined) {
-        console.log(allElements);
         this.setState({
           mainText: allElements[0].content,
           title: allElements[0].title,
@@ -42,9 +41,7 @@ class FormationDo extends React.Component {
       }
 
     });
-
   }
-
 
   handleChange(event) {
     this.setState({ mainText: event.target.value });
@@ -58,7 +55,6 @@ class FormationDo extends React.Component {
       return <span className='mainText'>{this.state.mainText}</span>;
     }
   }
-
 
   changeTitle(elem) {
     this.setState({ title: elem });
@@ -76,7 +72,6 @@ class FormationDo extends React.Component {
   }
 
   save() {
-    console.log('try to save');
     const elementDo = {
       idDo: this.state.id,
       title: this.state.title,
@@ -84,7 +79,6 @@ class FormationDo extends React.Component {
       media: ''
     };
     updateElementInDo(elementDo);
-    console.log('content saved');
   }
 
   render() {

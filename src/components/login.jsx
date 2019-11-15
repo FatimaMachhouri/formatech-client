@@ -37,7 +37,6 @@ class Login extends React.Component {
       if(res !== undefined){
         this.props.history.push('/');
       }else{
-        console.log('ici')
         this.setState({
           email: '',
           password: '',

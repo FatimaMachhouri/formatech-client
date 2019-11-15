@@ -5,15 +5,17 @@ import '../style/main.css';
 import Preview from './preview';
 import { verifyToken } from '../services/auth.service';
 import { getHomeElements, updateElementInHome } from '../services/home.service';
+import Video from './video';
 
 
-class Root extends React.Component{
+class Root extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       connected: false,
       mainText: '',
       title: '',
+      media: '',
       idHome: 0,
       previewOne: {},
       previewTwo: {}
@@ -27,11 +29,11 @@ class Root extends React.Component{
     const pageContent = getHomeElements();
     pageContent.then((allElements) => {
       if (allElements !== undefined) {
-        console.log(allElements);
         this.setState({
           mainText: allElements[0].content,
           title: allElements[0].title,
           idHome: allElements[0].idHome,
+          media: allElements[0].media
         });
         const elem1 = {};
         elem1.content = allElements[1].content;
@@ -49,9 +51,7 @@ class Root extends React.Component{
           previewOne: elem1,
           previewTwo: elem2
         });
-
       }
-
     });
 
     // Function for the page
@@ -59,12 +59,12 @@ class Root extends React.Component{
     this.save = this.save.bind(this);
     this.showSavedButton = this.showSavedButton.bind(this);
     this.changeTitle = this.changeTitle.bind(this);
+    this.renderMedia = this.renderMedia.bind(this);
+    this.changeMedia = this.changeMedia.bind(this);
 
     // Functions to handle changes on Preview Components: 
     this.changePreviewOne = this.changePreviewOne.bind(this);
     this.changePreviewTwo = this.changePreviewTwo.bind(this);
-
-
   }
 
   changePreviewOne(elem) {
@@ -79,9 +79,6 @@ class Root extends React.Component{
     });
   }
 
-
-
-
   renderText() {
     if (this.state.connected) {
       return <textarea className='mainText' value={this.state.mainText} onChange={(event) => this.handleChange(event)} />;
@@ -90,10 +87,30 @@ class Root extends React.Component{
     }
   }
 
+  renderMedia() {
+    if (this.state.connected) {
+      return <textarea className='mainText' value={this.state.media} onChange={(event) => this.changeMedia(event)} />;
+    } else {
+      if (this.state.media === '') {
+        return null;
+      } else {
+        return <Video media={this.state.media} />;
+      }
+    }
+  }
+
   changeTitle(elem) {
     this.setState({ title: elem });
   }
 
+  changeMedia(event) {
+    let link = event.target.value;
+    if (link.includes('=')) {
+      const idVideo = link.split("=")[1];
+      link = 'https://www.youtube.com/embed/' + idVideo;
+    }
+    this.setState({ media: link });
+  }
 
   handleChange(event) {
     this.setState({ mainText: event.target.value });
@@ -106,26 +123,25 @@ class Root extends React.Component{
   }
 
   save() {
-    console.log('try to save');
     const elementHome = {
       idHome: this.state.idHome,
       title: this.state.title,
       content: this.state.mainText,
-      media: ''
+      media: this.state.media
     };
     updateElementInHome(elementHome);
-    console.log('content saved');
   }
 
   render() {
     return (
       <div className="root">
         {this.showSavedButton()}
-        <MainTitle name={this.state.title} connected={this.state.connected} action={this.changeTitle}/>
+        <MainTitle name={this.state.title} connected={this.state.connected} action={this.changeTitle} />
         {this.renderText()}
+        {this.renderMedia()}
         <div className="pres-formation">
-          <Preview elem={this.state.previewOne} connected={this.state.connected}  className="do" />
-          <Preview elem={this.state.previewTwo} connected={this.state.connected}  className="ig" />
+          <Preview elem={this.state.previewOne} connected={this.state.connected} className="do" />
+          <Preview elem={this.state.previewTwo} connected={this.state.connected} className="ig" />
         </div>
       </div>
     );

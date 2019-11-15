@@ -14,7 +14,7 @@ const login = async (user) => {
     return res.data;
   }
   catch (err) {
-    console.log(err);
+    
   }
 };
 
@@ -40,7 +40,6 @@ const verifyToken = async () => {
     //return res.data;
   }
   catch (err) {
-    console.log(err);
     return false;
   }
 };
