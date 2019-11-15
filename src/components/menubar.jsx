@@ -70,14 +70,16 @@ class MenuBar extends React.Component {
           </div>
           <Link className='burgerElement' to="/contact" onClick={this.closeBurger} style={{ textDecoration: 'none', color: 'black' }}> CONTACT </Link>
 
-          {this.state.connected ? (<div className="burgerElement">
-            <img src={offButton} className="menuElement topnav-right offButton" alt="offButton-logo" onClick={this.logout} />
-          </div>) : null}
+          {this.state.connected ? (
+            <div className="logout">
+              <img src={offButton} className="menuElement topnav-right offButton" alt="offButton-logo" onClick={this.logout} />
+            </div>
+          ) : null}
         </div>
 
         <div className='MenuBar'>
           <header className='App-header'>
-            <Link className='menuElement' to="/"><img src={logo} className='polytechLogo' alt='Logo de polytech' /></Link>
+            <Link className='' to="/"><img src={logo} className='polytechLogo' alt='Logo de polytech' /></Link>
             <Link className='menuElement' to="/" style={{ textDecoration: 'none', color: 'black' }}> ACCUEIL </Link>
             <Link className='menuElement' to="/candidater" style={{ textDecoration: 'none', color: 'black' }}> CANDIDATER </Link>
             <p className='menuElement' onClick={this.showSubMenu}> FORMATIONS </p>
