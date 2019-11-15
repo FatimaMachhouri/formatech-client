@@ -1,0 +1,12 @@
+img {
+    width:5%;
+    height:5%;
+}
+
+#icon1 {
+    transform: rotate(90deg);
+}
+
+#icon2 {
+    transform: rotate(270deg);
+}
