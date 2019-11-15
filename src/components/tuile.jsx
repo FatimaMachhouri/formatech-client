@@ -10,12 +10,20 @@ class Tuile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      visibility: 'container',
+      visibility: 'hidden',
       currentPage: '',
       content: '',
     };
     this.close = this.close.bind(this);
     this.setContentTuile = this.setContentTuile.bind(this);
+    if (this.props.name !== '') {
+      this.setState({ visibility: 'container'})
+    }
+    if (this.props.formationName === 'IG') {
+      this.setState({currentPage:'IG3'})
+    } else {
+      this.setState({currentPage:'DO3'})
+    }
   }
 
   close() {

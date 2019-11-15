@@ -38,7 +38,7 @@ button{
 
 .container-login{
   background:url("../img/login.jpeg");
-  height:72vh;
+  height:calc(100vh - 100px);
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size:cover;
@@ -52,6 +52,15 @@ button{
   color:#fff;
   width:30%;
   text-align:center;
+}
+
+.error-message{
+  margin-top:15px;
+  color:#c0392b;
+  font-size:10px;
+  margin:auto;
+  display:block;
+  text-align: center;
 }
 
 @media only screen and (max-width: 780px) {

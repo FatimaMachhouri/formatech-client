@@ -61,10 +61,10 @@ class Login extends React.Component {
       <div className="container-login">
         <div className="login-component">
           <img src={lock} className="lock" alt="lock-logo" />
-          {this.state.error?  <div className="">Email et/ou mot de passe incorrect(s)!</div> : null}
+          {this.state.error?  <div className="error-message">Email ou mot de passe incorrect !</div> : null}
           <form>
-            <input type="text" placeholder="alice@mail.com" value={this.state.email} onChange={(event) => this.changeEmail(event)} />
-            <input type="password" placeholder="mon-mot-de-passe" value={this.state.password} onChange={(event) => this.changePass(event)} />
+            <input type="text" placeholder="nom d'utilisation" value={this.state.email} onChange={(event) => this.changeEmail(event)} />
+            <input type="password" placeholder="mot de passe" value={this.state.password} onChange={(event) => this.changePass(event)} />
             <button onClick={this.connect}>Se connecter</button>
           </form>
         </div>

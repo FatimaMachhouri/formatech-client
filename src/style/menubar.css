@@ -1,4 +1,4 @@
-@media only screen and (max-width: 780px) {
+@media only screen and (max-width: 921px) {
 
     .polytechLogo{
         width: 150px;
@@ -70,7 +70,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        z-index: 2;
+        z-index: 10;
     }
 
     .burgerIcon{
@@ -83,7 +83,7 @@
 }
 
 
-@media only screen and (min-width: 781px) {
+@media only screen and (min-width: 921px) {
     .polytechLogo{
         width: 150px;
         vertical-align: middle;
@@ -139,14 +139,21 @@
     .subBurger{
         text-align: center;
     }
-}
 
 .offButton{
     max-width:30px;
-    top: 10;
-    margin:auto;
+    margin-top:37px;
+    margin-right:20px;
   }
 
   .topnav-right {
     float: right;
   }
+
+.logout{
+min-width:100px;
+padding-top:30px;
+background-color:red;
+}
+
+}
