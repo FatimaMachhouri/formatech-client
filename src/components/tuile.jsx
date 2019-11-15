@@ -3,7 +3,6 @@ import * as config from '../config/configApi';
 import cross from '../img/cross.svg';
 import axios from 'axios';
 import TuileNavigation from './tuileNav';
-import TuileDropdown from './tuileDropdown';
 import PropTypes from 'prop-types';
 import '../style/tuile.css';
 
@@ -32,9 +31,10 @@ class Tuile extends React.Component {
   }
 
   async setContentTuile(elem) {
+    
     this.setState({currentPage: elem})
 
-    let semesters=[];
+    let semesters;
     switch(elem) {
       case 'IG3': 
         semesters = (await axios.get(config.API_URL + '/sagesse/step/1/modules')).data.periods;
@@ -92,6 +92,11 @@ class Tuile extends React.Component {
     }
   }
 
+  getSubjects(elem) {
+    if (elem === undefined || elem === '') return []
+    else { return elem.split(',') }
+  }
+
   UNSAFE_componentWillUpdate(nextProps) {
     if (nextProps.name !== this.props.name) {
       this.setContentTuile(this.state.currentPage);
@@ -117,7 +122,8 @@ class Tuile extends React.Component {
               <ul>
                 {this.getModules(sem.split(':')[1]).map(ue =>
                   <li className='content2' key={ue.id}>
-                    <TuileDropdown module={ue}/>
+                    {ue.split('~')[0]}
+                    <ul> {this.getSubjects(ue.split('~')[1]).map(sub => <li key={sub.id}> {sub} </li>)} </ul>
                   </li>
                 )}
               </ul>
