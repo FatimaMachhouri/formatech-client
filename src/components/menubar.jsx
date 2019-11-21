@@ -62,7 +62,7 @@ class MenuBar extends React.Component {
         <div className={this.state.classNameBurger} id='burger'>
           <img src={cross} className='cross' onClick={this.closeBurger} alt='close menu.' />
           <Link className='burgerElement' to="/" onClick={this.closeBurger} style={{ textDecoration: 'none', color: 'black' }}> ACCUEIL </Link>
-          <Link className='burgerElement' to="/candidater" onClick={this.closeBurger} style={{ textDecoration: 'none', color: 'black' }}> CANDIDATER </Link>
+          <a className='burgerElement' href="https://admitech.igpolytech.fr/" onClick={this.closeBurger} style={{ textDecoration: 'none', color: 'black' }}> CANDIDATER </a>
           <p className='burgerElement' onClick={this.showSubMenuMobile}> FORMATIONS </p>
           <div className={this.state.classNameSubMenu} onClick={this.closeBurger}>
             <p className='subBurger' onClick={this.showSubMenuMobile}> <Link to="/formation/ig" style={{ textDecoration: 'none', color: 'black' }}> IG </Link> </p>
@@ -81,7 +81,7 @@ class MenuBar extends React.Component {
           <header className='App-header'>
             <Link className='' to="/"><img src={logo} className='polytechLogo' alt='Logo de polytech' /></Link>
             <Link className='menuElement' to="/" style={{ textDecoration: 'none', color: 'black' }}> ACCUEIL </Link>
-            <Link className='menuElement' to="/candidater" style={{ textDecoration: 'none', color: 'black' }}> CANDIDATER </Link>
+            <a className='menuElement' href="https://admitech.igpolytech.fr/" style={{ textDecoration: 'none', color: 'black' }}> CANDIDATER </a>
             <p className='menuElement' onClick={this.showSubMenu}> FORMATIONS </p>
             <div className={this.state.classNameSubMenuFloat} onMouseLeave={this.showSubMenu}>
               <p className='subBurger' onClick={this.showSubMenu}> <Link to="/formation/ig" style={{ textDecoration: 'none', color: 'black' }}> IG </Link> </p>
