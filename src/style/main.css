@@ -69,13 +69,13 @@ mainTitle:before{
     width:30px;
     margin-left:20px;
     display:inline-block;
+    height:auto;
 }
 
 .save-label{
     font-weight: 200;
     color: dodgerblue;
     font-size: 12px;
-    margin-top: -20px;
     margin-left: 10px;
     vertical-align: middle;
     display: inline-block;
