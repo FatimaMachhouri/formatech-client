@@ -1,7 +1,4 @@
-# Admitech
-
-![Logo admmitech](https://user-images.githubusercontent.com/32480223/67026906-f68d5280-f108-11e9-8d42-b9a836db4a4b.png)
-
+# Formatech-Client
 Recrutment platform for IG & DO courses in Polytech Montpellier
 
 ## Informations
