@@ -38,5 +38,5 @@ Ce projet représente la partie client de l'application Formatech qui est une ap
   ```
 apps:create formatech
 
-proxy:ports-add api-formatech http:80:3000
+proxy:ports-add formatech http:80:3000
 ```
