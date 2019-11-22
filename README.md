@@ -1,5 +1,3 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 # Admitech
 
 ![Logo admmitech](https://user-images.githubusercontent.com/32480223/67026906-f68d5280-f108-11e9-8d42-b9a836db4a4b.png)
@@ -25,9 +23,8 @@ Ce projet représente la partie client de l'application Formatech qui est une ap
 ## Installation 
 ### Mise en place
 ```
-    git clone https://github.com/MartinCayuelas/formatech-api
-    cd formatech-api
-    npm run build
+    git clone https://github.com/FatimaMachhouri/formatech-client
+    cd formatech
     npm start
 
 ```
