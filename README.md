@@ -18,6 +18,8 @@ Projet réalisé par :
 Ce projet représente la partie client de l'application Formatech qui est une application à but informatif pour les élèves en *IG* et *DO* à Polytech Montpellier.
 
 ### Technos 
+![image](https://user-images.githubusercontent.com/23449337/69442283-95325200-0d4c-11ea-9533-1fb786e6d79a.png)
+![image](https://user-images.githubusercontent.com/23449337/69442341-b2ffb700-0d4c-11ea-8c08-fab0f04504e9.png)
 
 
 ## Installation 
